@@ -1,0 +1,49 @@
+body {
+	margin: 0 30%;
+}
+
+#logo {
+	margin-bottom: 0; 
+	padding-bottom: 0;
+	font-family: "Arial";
+}
+ 
+#labelgreen {
+	color: green;
+}
+
+#labelred {
+	color: red;
+}
+
+#hi_username {
+	float: right;
+	margin-bottom: 0;
+}
+
+#logout {
+	float: right;
+}
+
+#extralogo {
+	margin-top: 0; 
+	color: green;
+}
+
+table, tr, td {
+	border: 1px solid black;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+td {
+	font-family: "Arial";
+	font-weight: bold;
+	text-align: center;
+	padding: 10px;
+	font-size: 1.5em;
+	width: 33.33%;
+}
