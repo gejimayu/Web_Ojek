@@ -30,20 +30,39 @@ body {
 	color: green;
 }
 
-table, tr, td {
+#tableactivity, tr, td {
 	border: 1px solid black;
 }
 
-table {
+#tableactivity {
 	width: 100%;
 	border-collapse: collapse;
 }
 
-td {
+#tableactivity tr td {
 	font-family: "Arial";
 	font-weight: bold;
 	text-align: center;
 	padding: 10px;
 	font-size: 1.5em;
 	width: 33.33%;
+	color: rgb(42, 90, 27);
+}
+
+#makeanorder {
+	margin: 10px 0;
+	font-size: 2.5em;
+	font-weight: bold;
+	font-family: "Arial";
+	color: rgb(42, 90, 27);
+}
+
+.tableorder {
+	border-collapse: collapse;
+	display: inline-block;
+	width: 30%;
+}
+
+.tableorder tr td{
+	border-style: none;
 }
