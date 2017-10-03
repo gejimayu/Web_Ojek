@@ -1,3 +1,8 @@
+# === Kelompok The Freelancers ===
+Farhan Amin / 13515043
+Stevanno Hero Leadervand / 13515082
+Gianfranco Fertino Hwandiano / 13515118
+
 # Tugas 1 IF3110 Pengembangan Aplikasi Berbasis Web
 
 Membuat sebuah Website Ojek Online
