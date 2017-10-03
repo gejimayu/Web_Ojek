@@ -1,42 +1,117 @@
-.main {
-    width: 560px;
-    height: 500px;
-    margin: 40px auto;
-    border-radius: 65px;
+body {
+  border: 2px solid black;
+  height: 440px; 
+  width: 520px;
+  margin: 100px auto;
 }
 
-.heading {
+h1 {
   font-family: 'Fjalla One', sans-serif;
-  padding: 24px 24px 4px 24px;
+  margin: 24px 24px 16px 24px;
 }
 
-.edit_avatar img{
+img {
   width: 140px;
-  height: 140px;
+  height: 130px;
   margin-left: 24px;
   border: 2px solid black;
 }
 
-.upload_ava {
-  margin-left: 24px;
+table {
+  margin: 20px 24px 0 24px;
+  width: 472px;
+}
+
+.edit_ava {
+  float: right;
+  margin-right: 24px;
+  width: 288px;
+  font-size: 0.8em;
+
+}
+
+#avaBox {
+  width: 210px;
+}
+
+#browseButton {
+  width: 66px;
+  float: right;
 }
 
 .edit_profile {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.3em;
+}
+
+.labelTabel {
+  width: 140px; 
   margin-left: 24px;
 }
 
-.bottom_button {
+#backButton {
+  background-color: #ed1212;
+  margin-top: 50px;
   margin-left: 24px;
+  padding: 6px 16px;
+  border-radius: 8px;
+  border: 1px solid black;
+  font-family: 'Times New Roman', serif;
+  font-size: 1.2em;
 }
+
+#saveButton {
+  background-color:  #66cc00;
+  margin-top: 50px;
+  margin-right: 24px;
+  float: right;
+  padding: 6px 16px;
+  border-radius: 8px;
+  border: 1px solid black;
+  font-family: 'Times New Roman', serif;
+  font-size: 1.2em;
+}
+
+.box {
+  height: 24px;
+  width: 280px;
+  float: right;
+}
+
+
+/*
+.imgUpload {
+    overflow: hidden;
+    float: right;
+}
+.imgUpload input.browseButton {
+    position: absolute;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.imgUpload span {
+    font-size: 0.5em;
+    background: #D9D9D9;
+    padding: 6px;
+    border: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+*/
 
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 48px;
+  height: 28px;
+  float: right;
 }
 
-.switch input {display:none;}
+.switch input {
+  display:none;
+}
 
 .slider {
   position: absolute;
@@ -53,8 +128,8 @@
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
+  height: 20px;
+  width: 20px;
   left: 4px;
   bottom: 4px;
   background-color: white;
@@ -71,9 +146,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(19px);
+  -ms-transform: translateX(19px);
+  transform: translateX(19px);
 }
 
 .slider.round {
