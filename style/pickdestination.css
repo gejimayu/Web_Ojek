@@ -46,7 +46,6 @@ body {
 	padding: 10px;
 	font-size: 1.5em;
 	width: 33.33%;
-	color: rgb(42, 90, 27);
 }
 
 #makeanorder {
@@ -113,4 +112,17 @@ button {
 	padding: 10px 25px;
 	border-radius: 12px;
 	border: 1px solid black	;
+}
+
+#current_activity {
+	color: white;
+	background-color: rgb(42, 90, 27);
+}
+
+.rest_activity {
+	color: rgb(42, 90, 27);
+}
+
+#current_order {
+	background-color: yellow;
 }

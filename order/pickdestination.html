@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="order.css">
+	<link rel="stylesheet" type="text/css" href="../style/pickdestination.css">
 	<title>Order</title>
 </head>
 <body>
@@ -16,16 +16,16 @@
 
 	<table id="tableactivity">
 		<tr>
-			<td>ORDER</td>
-			<td>HISTORY</td>
-			<td>MY PROFILE</td>
+			<td id="current_activity">ORDER</td>
+			<td class="rest_activity">HISTORY</td>
+			<td class="rest_activity">MY PROFILE</td>
 		</tr>
 	</table>
 
 	<p id="makeanorder">MAKE AN ORDER</p>
 		
 	<table class="tableorder">
-		<tr>
+		<tr id="current_order">
 			<td><div class="circle">1</div></td>
 			<td class="titleorder">Select<br>Destination</td>
 		</tr>
@@ -57,7 +57,7 @@
 			</tr>
 			<tr>
 				<td class="inputlabel">Preferred Driver</td>
-				<td><input type="text" name="preferred_driver"></td>
+				<td><input type="text" name="preferred_driver" placeholder="Optional"></td>
 			</tr>
 		</table>
 		<button>NEXT</button>
