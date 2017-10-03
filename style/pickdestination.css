@@ -126,3 +126,15 @@ button {
 #current_order {
 	background-color: yellow;
 }
+
+.driverblock {
+	border: 1px solid black;
+	margin-bottom: 5px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+
+.driverblock h2 {
+	margin-left: 10px;
+}
