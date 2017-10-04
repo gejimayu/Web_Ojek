@@ -48,7 +48,20 @@
 	<div class="driverblock">
 		<h2>PREFERRED DRIVERS:</h2>
 		<?php
-			
+			include '../db.php';
+			$db = new Database();
+			$pickingpoint = $db -> escapeStr($_GET['picking_point']);
+			$destination = $db -> escapeStr($_GET['destination']);
+
+			$results = $db -> select("SELECT * FROM driver NATURAL JOIN pref_location join user
+										WHERE id_user = id_driver AND 
+												( ". $pickingpoint . " = location OR " . $destination . " = location)");
+			if ($results == false)
+				echo "fail";
+			else {
+				foreach ($results as &$result)
+					echo $result['name'] . "<br>";
+			}
 		?>
 	</div>
 

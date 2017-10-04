@@ -45,7 +45,7 @@
 		</tr>
 	</table>
 
-	<form action="order/selectdriver.php" method="GET">
+	<form action="selectdriver.php" method="GET">
 		<table id="table_form">
 			<tr>
 				<td class="inputlabel">Picking Point</td>
