@@ -19,6 +19,9 @@
 	<?php if(!empty($error_message)) { ?>	
 		<div id="error-message"><?php if(isset($error_message)) echo $error_message; ?></div>
 	<?php } ?>
+	<?php if(!empty($error_message_udah)) { ?>	
+		<div id="error-message-udah"><?php if(isset($error_message_udah)) echo $error_message_udah; ?></div>
+	<?php } ?>
 	<form method="post" action="register.php">
 		<div class="form-element">
 			<table>

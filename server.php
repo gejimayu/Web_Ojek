@@ -8,13 +8,20 @@
 
 		if($_POST['password'] != $_POST['password_confirm']){ 
 		$error_message = 'Password harus = Confirm Password<br>'; 
-		}	
-		if(!isset($error_message)) {
-			//connect ke db
-			$db = mysqli_connect('localhost', 'root', '', 'registration');
+		}
+		//connect ke db
+		$db = mysqli_connect('localhost', 'root', '', 'registration');
+		$username = $_POST['username'];
+		$email = $_POST['email'];
+		$q = "SELECT * FROM users WHERE username='$username' OR email='$email'";
+		$r = mysqli_query($db, $q);
+		
+		if (mysqli_num_rows($r)){//berarti udah kepake, username or email
+			$error_message_udah = 'Email atau Password udah terpakai';
+		}
+
+		if((!isset($error_message)) && (!isset($error_message_udah))) {	
 			$name = $_POST['name'];
-			$username = $_POST['username'];
-			$email = $_POST['email'];
 			$phone = $_POST['phone'];
 			$password = $_POST['password'];
 			if (isset($_POST['box'])){
