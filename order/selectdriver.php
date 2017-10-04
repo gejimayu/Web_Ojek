@@ -46,7 +46,7 @@
 	</table>
 
 	<div class="driverblock">
-		<h2>PREFERRED DRIVERS:</h2>
+		<h2 class="title_driver">PREFERRED DRIVERS:</h2>
 		<!-- <?php
 			include '../db.php';
 			$db = new Database();
@@ -63,13 +63,13 @@
 					echo $result['name'] . "<br>";
 			}
 		?> -->
-		<div>
+		<div class="chosen_driver">
 			<table>
 				<tr>
 					<td><img src="../img/pika1.png"></td>
-					<td>
-						Pikachu!!!<br>
-						☆ 4.5 (28 votes) <br>
+					<td id="driver_identification">
+						<span id="driver_name">Pikachu!!!</span><br>
+						<span id="driver_rating">☆ 4.5</span> (28 votes) <br>
 						<button>I CHOOSE YOU!</button>
 					</td>
 				</tr>
@@ -78,7 +78,31 @@
 	</div>
 
 	<div class="driverblock">
-		<h2>OTHER DRIVERS:</h2>
+		<h2 class="title_driver">OTHER DRIVERS:</h2>
+		<div class="chosen_driver">
+			<table>
+				<tr>
+					<td><img src="../img/pika1.png"></td>
+					<td id="driver_identification">
+						<span id="driver_name">Pikachu!!!</span><br>
+						<span id="driver_rating">☆ 4.5</span> (28 votes) <br>
+						<button>I CHOOSE YOU!</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="chosen_driver">
+			<table>
+				<tr>
+					<td><img src="../img/pika1.png"></td>
+					<td id="driver_identification">
+						<span id="driver_name">Pikachu!!!</span><br>
+						<span id="driver_rating">☆ 4.5</span> (28 votes) <br>
+						<button>I CHOOSE YOU!</button>
+					</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </body>
 </html>
