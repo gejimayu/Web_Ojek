@@ -40,7 +40,7 @@
         // This will be called at the end of the script.
         public function __destruct()
         {
-            mysqli_close($this->connection);
+            mysqli_close(self::$connection);
         }
 
     }

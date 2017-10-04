@@ -48,23 +48,44 @@
 	<div class="driverblock">
 		<h2 class="title_driver">PREFERRED DRIVERS:</h2>
 		<div class="chosen_driver">
-			
+			<?php
+				include '../db.php';
+				$db = new Database();
+				$pickingpoint = $db -> escapeStr($_GET['picking_point']);
+				$destination = $db -> escapeStr($_GET['destination']);
+				$preferred = $db -> escapeStr($_GET['preferred_driver']);
+
+				if (isset($preferred)) {
+					$results = $db -> select("SELECT * FROM driver join user
+											WHERE id_user = id_driver AND name = " . $preferred);
+					if ($results == false)
+						echo "<p>Nothing to display :(</p>";
+					else {
+						foreach ($results as &$result) {
+							echo "<table>
+									<tr>
+										<td><img src='../" . $result['prof_pic'] . "'></td>
+										<td id='driver_identification'>
+											<span id='driver_name'>" . $result['name'] . "</span><br>
+											<span id='driver_rating'>☆ ". $result['avgrating'] ."</span> (". $result['num_votes'] ." votes) <br>
+											<button>I CHOOSE YOU!</button>
+										</td>
+									</tr>
+								</table>";
+						}
+					}
+				}
+				else {
+					echo "<p>Nothing to display :(</p>";
+				}
+			?>
 		</div>
 	</div>	
 
 	<div class="driverblock">
 		<h2 class="title_driver">OTHER DRIVERS:</h2>
 		<div class="chosen_driver">
-			<table>
-				<tr>
-					<td><img src="../img/pika1.png"></td>
-					<td id="driver_identification">
-						<span id="driver_name">Pikachu!!!</span><br>
-						<span id="driver_rating">☆ 4.5</span> (28 votes) <br>
-						<button>I CHOOSE YOU!</button>
-					</td>
-				</tr>
-			</table>
+			
 		</div>
 	</div>
 </body>
