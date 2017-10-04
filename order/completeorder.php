@@ -48,15 +48,18 @@
 
 	<h2 id="howwasit">HOW WAS IT?</h2>
 
-	<img src="../img/Pika1.png">
-	<p>@bomratata</p>
-	<div class="rating">
-		<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+	<div id="ordercontent">
+		<img src="../img/Pika1.png">
+		<p id="username">@bomratata</p>
+		<p id="name">Bombaratatatatat ratatatata</p>
+		<div class="rating">
+			<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+		</div>
+		<form>
+			<textarea placeholder="Your comment..."></textarea>
+			<button>Complete<br>Order</button>
+		</form>
 	</div>
-	<form>
-		<textarea placeholder="Your comment..."></textarea>
-		<button>Complete<br>Order</button>
-	</form>
-
+		
 </body>
 </html>

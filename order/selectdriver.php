@@ -52,9 +52,12 @@
 			<?php
 				include '../db.php';
 				$db = new Database();
-				$pickingpoint = $db -> escapeStr($_GET['picking_point']);
-				$destination = $db -> escapeStr($_GET['destination']);
-				$preferred = $db -> escapeStr($_GET['preferred_driver']);
+				if (isset($_GET['picking_point']))
+					$pickingpoint = $db -> escapeStr($_GET['picking_point']);
+				if (isset($_GET['destination']))
+					$destination = $db -> escapeStr($_GET['destination']);
+				if (isset($_GET['preferred_driver']))
+					$preferred = $db -> escapeStr($_GET['preferred_driver']);
 
 				if (isset($preferred)) {
 					$results = $db -> select("SELECT * FROM driver join user
@@ -87,26 +90,28 @@
 		<h2 class="title_driver">OTHER DRIVERS:</h2>
 		<div class="chosen_driver">
 			<?php
-				$pickingpoint = $db -> escapeStr($_GET['picking_point']);
-				$destination = $db -> escapeStr($_GET['destination']);
-
-				$results = $db -> select("SELECT * FROM driver NATURAL JOIN pref_location join user
-											WHERE id_user = id_driver AND 
-													( ". $pickingpoint . " = location OR " . $destination . " = location)");
-				if ($results == false)
+				if (!isset($_GET['picking_point']) || !isset($_GET['destination'])) {
 					echo "<p>Nothing to display :(</p>";
+				}
 				else {
-					foreach ($results as &$result) {
-						echo "<table>
-								<tr>
-									<td><img src='../" . $result['prof_pic'] . "'></td>
-									<td id='driver_identification'>
-										<span id='driver_name'>" . $result['name'] . "</span><br>
-										<span id='driver_rating'>☆ ". $result['avgrating'] ."</span> (". $result['num_votes'] ." votes) <br>
-										<button>I CHOOSE YOU!</button>
-									</td>
-								</tr>
-							</table>";
+					$results = $db -> select("SELECT * FROM driver NATURAL JOIN pref_location join user
+											WHERE id_user = id_driver AND 
+											( ". $pickingpoint . " = location OR " . $destination . " = location)");
+					if ($results == false)
+						echo "<p>Nothing to display :(</p>";
+					else {
+						foreach ($results as &$result) {
+							echo "<table>
+									<tr>
+										<td><img src='../" . $result['prof_pic'] . "'></td>
+										<td id='driver_identification'>
+											<span id='driver_name'>" . $result['name'] . "</span><br>
+											<span id='driver_rating'>☆ ". $result['avgrating'] ."</span> (". $result['num_votes'] ." votes) <br>
+											<button>I CHOOSE YOU!</button>
+										</td>
+									</tr>
+								</table>";
+						}
 					}
 				}
 			?>
