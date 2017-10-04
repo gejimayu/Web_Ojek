@@ -2,6 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../style/pickdestination.css">
+	<link rel="stylesheet" type="text/css" href="../style/header.css">
 	<title>Order</title>
 </head>
 <body>
