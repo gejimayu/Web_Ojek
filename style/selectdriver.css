@@ -38,7 +38,7 @@
 	color: orange;
 }
 
-#driver_identification button {
+#driver_identification form button {
 	position: relative;
 	top: 20px;
 	left: 160%;

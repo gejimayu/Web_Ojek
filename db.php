@@ -2,10 +2,6 @@
     class Database {
         protected static $connection;
 
-        public function __construct() {
-            $connection = $this -> connect();
-        }
-
         public function connect() {    
             if(!isset(self::$connection)) {
                 $config = parse_ini_file('config.ini'); 
@@ -19,6 +15,7 @@
         }
 
         public function query($query) {
+            $connection = $this -> connect();
             $result = $connection -> query($query);
             return $result;
         }
@@ -43,7 +40,8 @@
         // This will be called at the end of the script.
         public function __destruct()
         {
-            mysqli_close(self::$connection);
+            if (isset($connection))
+                mysqli_close(self::$connection);
         }
 
     }

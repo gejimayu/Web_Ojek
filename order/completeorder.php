@@ -49,9 +49,17 @@
 	<h2 id="howwasit">HOW WAS IT?</h2>
 
 	<div id="ordercontent">
-		<img src="../img/Pika1.png">
-		<p id="username">@bomratata</p>
-		<p id="name">Bombaratatatatat ratatatata</p>
+		<?php
+			include '../db.php';
+			$db = new Database();
+			$driverid = $_GET['driverid'];
+			$results = $db -> select("SELECT * from user WHERE id_user = $driverid");
+			foreach ($results as &$result) {
+				echo "<img src='../". $result['prof_pic'] ."'>
+						<p id='username'>@". $result['username'] ."</p>
+						<p id='name'>". $result['name'] ."</p>";
+			}
+		?>
 
 		<form action="#" method="GET">
 		    <div class="rate">

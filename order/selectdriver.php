@@ -72,7 +72,9 @@
 										<td id='driver_identification'>
 											<span id='driver_name'>" . $result['name'] . "</span><br>
 											<span id='driver_rating'>☆ ". $result['avgrating'] ."</span> (". $result['num_votes'] ." votes) <br>
-											<button>I CHOOSE YOU!</button>
+											<form action='completeorder.php' method='GET'>
+												<input type='submit' name='submit' value='I CHOOSE YOU!'></input>
+											</form>
 										</td>
 									</tr>
 								</table>";
@@ -107,7 +109,9 @@
 										<td id='driver_identification'>
 											<span id='driver_name'>" . $result['name'] . "</span><br>
 											<span id='driver_rating'>☆ ". $result['avgrating'] ."</span> (". $result['num_votes'] ." votes) <br>
-											<button>I CHOOSE YOU!</button>
+											<form id='asd' action='completeorder.php' method='GET'>
+												<button name='driverid' value='". $result['id_driver'] ."'>I CHOOSE YOU!</button>
+											</form>
 										</td>
 									</tr>
 								</table>";
