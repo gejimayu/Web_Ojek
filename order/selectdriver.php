@@ -64,16 +64,7 @@
 			}
 		?> -->
 		<div class="chosen_driver">
-			<table>
-				<tr>
-					<td><img src="../img/pika1.png"></td>
-					<td id="driver_identification">
-						<span id="driver_name">Pikachu!!!</span><br>
-						<span id="driver_rating">☆ 4.5</span> (28 votes) <br>
-						<button>I CHOOSE YOU!</button>
-					</td>
-				</tr>
-			</table>
+			<p>Nothing to display :(</p>
 		</div>
 	</div>
 
