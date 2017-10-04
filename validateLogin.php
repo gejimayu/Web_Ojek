@@ -15,7 +15,6 @@
 		{	
 	    	$row = mysqli_fetch_assoc($result);
 	    	$id = $row['id'];
-	    	$ide = intval($id);
 	    	header("Location:tes.html?id=". $id);
 		}else {//belom daftar
 			$error = "Anda belum mendaftar";

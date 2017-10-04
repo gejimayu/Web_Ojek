@@ -31,9 +31,19 @@
 			}
 
 			$query = "INSERT INTO users (name, username, email, password, phone, isDriver) VALUES('$name','$username','$email','$password','$phone','$box')";
-
 			mysqli_query($db,$query);
+			$query2 = "SELECT * FROM users where username='$username'";
+			$result = mysqli_query($db,$query2);
+			$row = mysqli_fetch_assoc($result);
+			$id = $row['id'];
 			$success_message = 'Selamat anda terdaftar di layanan ini<br>';
+			if ($box==1){
+				//masuk ke profile
+				header("Location:profile.html/id=". $id);	
+			}else {//masuk ke order
+				header("Location:order.php/id=". $id);
+			}
+			
 		}
 
 	}
