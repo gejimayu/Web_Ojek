@@ -36,5 +36,12 @@
             $connection = $this -> connect();
             return "'" . $connection -> real_escape_string($value) . "'";
         }
+
+        // This will be called at the end of the script.
+        public function __destruct()
+        {
+            mysqli_close($this->connection);
+        }
+
     }
 ?>
