@@ -47,7 +47,7 @@
 
 	<div class="driverblock">
 		<h2>PREFERRED DRIVERS:</h2>
-		<?php
+		<!-- <?php
 			include '../db.php';
 			$db = new Database();
 			$pickingpoint = $db -> escapeStr($_GET['picking_point']);
@@ -57,12 +57,24 @@
 										WHERE id_user = id_driver AND 
 												( ". $pickingpoint . " = location OR " . $destination . " = location)");
 			if ($results == false)
-				echo "fail";
+				echo "no result";
 			else {
 				foreach ($results as &$result)
 					echo $result['name'] . "<br>";
 			}
-		?>
+		?> -->
+		<div>
+			<table>
+				<tr>
+					<td><img src="../img/pika1.png"></td>
+					<td>
+						Pikachu!!!<br>
+						☆ 4.5 (28 votes) <br>
+						<button>I CHOOSE YOU!</button>
+					</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 
 	<div class="driverblock">

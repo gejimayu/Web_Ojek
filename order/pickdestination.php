@@ -60,7 +60,7 @@
 				<td><input type="text" name="preferred_driver" placeholder="Optional"></td>
 			</tr>
 		</table>
-		<button>NEXT</button>
+		<button id="next">NEXT</button>
 	</form>
 
 </body>
