@@ -2,30 +2,58 @@ html {
 	background-color: white;
 }
 
-body {
 
+body {
 	border-style: solid;
 	padding: 0 30px 50px 5px;
 	background-color: #8ABD3C; 
 	margin: 80px 30% 0 30%;
-	border-radius: 30px;
-	border-width: 7px;
+	border-radius: 50px;
+	border-width: 10px;
 	border-color: #066E27;
-	width: 300px;
-	height: 400px;
+	width: 320px;
+	height: 450px;
+	font-family: "Arial";
+	
 }
 
-h1 {
-	text-align: center;
+.header {
+	height: 90px;
+	padding-left: 20px;
+	padding-bottom: 20px;
+}
+#signup {
+	padding-top: 20px;
+	padding-left: 50px;
+	font-size: 50px;
 	color: #066E27;
+}
+
+#success-message {
+	padding-left: 50px;
+	color: #181b21;
 	margin-bottom: 50px;
 }
+
+#error-message {
+	color: #ff3a30;
+	margin-bottom: 10px;
+	padding-left: 50px;
+}
+
+
+form {
+
+	width: 110%;
+}
+
+
 
 label {
 	color: #066E27;
 	display: inline-block;
-	width: 100px;
 	text-align: left;
+	margin-right: 20px;
 }
 
 .form-element label {
@@ -36,11 +64,32 @@ label {
    
 }
 
+#yournameLabel, #usernameLabel, #emailLabel, #passwordLabel, #confirmLabel, #phoneLabel {
+	width: 150px;
+}
+
 input {
-	margin-left: 30px;
+	border-width: 1.5px;
 	border-style: solid;
-	height: 20px;
+	height: 25px;
 	border-color: #066E27;
+	padding-left: 5px;
+}
+
+#username {
+	width: 120px;
+}
+
+#oke {
+	width: 25px;
+}
+
+#email {
+	width: 120px;
+}
+
+#okee {
+	width: 25px;
 }
 
 .no_account {
@@ -76,4 +125,5 @@ a {
 	background-color: #7ED808;
 	border-style: solid;
 	font-size: 15px;
+	border-color: #000000 #000000;
 }
