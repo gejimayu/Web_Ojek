@@ -28,7 +28,7 @@
 		$success_message = 'Selamat anda terdaftar di layanan ini<br>';
 		if ($box==1){
 			//masuk ke profile
-			header("Location:profile.html/id=". $id);	
+			header("Location:profile.php/id=". $id);	
 		}else {//masuk ke order
 			header("Location:order.php/id=". $id);
 		}
