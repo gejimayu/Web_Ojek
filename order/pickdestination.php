@@ -4,6 +4,28 @@
 	<link rel="stylesheet" type="text/css" href="../style/pickdestination.css">
 	<link rel="stylesheet" type="text/css" href="../style/header.css">
 	<title>Order</title>
+	<script type="text/javascript">
+		function validateForm() {
+			var pick = document.getElementById("picking_point").value;
+			var dest = document.getElementById("destination").value;
+			var check = true;
+			if (pick == "") {
+				document.getElementById("pick_req").innerHTML = "required";
+				check = false;
+			}
+			else {
+				document.getElementById("pick_req").innerHTML = "";
+			}
+			if (dest == "") {
+				document.getElementById("dest_req").innerHTML = "required";
+				check = false;
+			}
+			else {
+				document.getElementById("dest_req").innerHTML = "";
+			}
+			return check;
+		}
+	</script>
 </head>
 <body>
 	<div>
@@ -46,15 +68,17 @@
 		</tr>
 	</table>
 
-	<form action="selectdriver.php" method="GET">
+	<form action="selectdriver.php" method="GET" onsubmit="return validateForm()">
 		<table id="table_form">
 			<tr>
 				<td class="inputlabel">Picking Point</td>
-				<td><input type="text" name="picking_point"</td>
+				<td><input id="picking_point" type="text" name="picking_point"</td>
+				<td id="pick_req" class="required"></td>
 			</tr>
 			<tr>
 				<td class="inputlabel">Destination</td>
-				<td><input type="text" name="destination"></td>
+				<td><input id="destination" type="text" name="destination"></td>
+				<td id="dest_req" class="required"></td>
 			</tr>
 			<tr>
 				<td class="inputlabel">Preferred Driver</td>

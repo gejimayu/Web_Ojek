@@ -1,5 +1,5 @@
 #table_form{
-	margin-left: 25px;
+	margin-left: 15px;
 }
 
 #table_form tr td{
@@ -10,11 +10,11 @@
 	font-family: "Arial";
 	font-size: 1.3em;
 	color: rgb(42, 90, 27);
-	padding-right: 40px;
+	padding-right: 25px;
 }
 
 input {
-	width: 110%;
+	width: 100%;
 	padding: 3px;
 }
 
@@ -26,4 +26,11 @@ input {
 	padding: 10px 25px;
 	border-radius: 12px;
 	border: 1px solid black	;
+}
+
+.required {
+	padding-left: 15px;
+	color: red;
+	font-size: 0.9em;
+	font-family: "Arial";
 }
