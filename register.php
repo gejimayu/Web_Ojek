@@ -22,12 +22,12 @@
 	<?php if(!empty($error_message_udah)) { ?>	
 		<div id="error-message-udah"><?php if(isset($error_message_udah)) echo $error_message_udah; ?></div>
 	<?php } ?>
-	<form method="post" action="register.php">
+	<form method="post" action="register.php" name="form" onsubmit="return (validateForm())">
 		<div class="form-element">
 			<table>
 				<tr>
 					<th><label id="yournameLabel" for="name">Yourname</label></th>
-					<th><input type="text" name="name" id="name"  placeholder="your fullname" required/></th>
+					<th><input type="text" name="name" id="name"  placeholder="your fullname" /></th>
 					
 				</tr>
 			</table>
@@ -36,7 +36,7 @@
 			<table>
 				<tr>
 					<th><label id="usernameLabel"for="username">Username</label></th>
-					<th><input placeholder="your username" type="text" name="username" id="username" onkeyup="validateUsername(this.value)" required/></th>
+					<th><input placeholder="your username" type="text" name="username" id="username" onkeyup="validateUsername(this.value)" /></th>
 					<th><img src="" id="oke"></th>
 				</tr>
 			</table>
@@ -45,7 +45,7 @@
 			<table>
 				<tr>
 					<th><label id="emailLabel" for="email">Email</label></th>
-					<th><input placeholder="your email" type="email" name="email" id="email" onkeyup="validateEmail(this.value)" required /></th>
+					<th><input placeholder="aa@aa.aa" type="text" name="email" id="email" onkeyup="validateEmail(this.value)"  /></th>
 					<th><img id="okee" src=""></th>
 				</tr>
 			</table>
@@ -54,7 +54,7 @@
 			<table>
 				<tr>
 					<th><label id="passwordLabel" for="password">Password</label></th>
-					<th><input placeholder="your password"type="password" name="password" id="password" required /></th>
+					<th><input placeholder="your password" type="password" name="password" id="password"  /></th>
 				</tr>
 			</table>
 		</div>
@@ -62,7 +62,7 @@
 			<table>
 				<tr>
 					<th><label id="confirmLabel" for="password_confirm">Confirm password</label></th>
-					<th><input placeholder="confirm your password" type="password" name="password_confirm" id="password_confirm" required /></th>
+					<th><input placeholder="confirm your password" type="password" name="password_confirm" id="password_confirm"  /></th>
 				</tr>
 			</table>
 		</div>
@@ -70,7 +70,7 @@
 			<table>
 				<tr>
 					<th><label id="phoneLabel" for="phone">Phone Number</label></th>
-					<th><input placeholder="your phone number"type="text" name="phone" id="phone" required /></th>
+					<th><input placeholder="your phone number" type="text" name="phone" id="phone"  /></th>
 				</tr>
 			</table>
 		</div>
@@ -90,6 +90,82 @@
 	</form>
 
 	<script>
+	var check = true;
+	//untuk validasi email,username, dan phone number menggunakan javascript
+	function validateForm(){
+		var name = document.form.name.value;
+		var username = document.form.username.value;
+		var email = document.form.email.value;
+		var password = document.form.password.value;
+		var password_confirm = document.form.password_confirm.value;
+		var phone = document.form.phone.value;
+		//semua field ga boleh kosong
+		if (!validateName(name)){
+			alert ("nama ko kosong?");
+			check = false;
+		}
+		if (username==""){
+			alert("username tidak boleh kosong");
+			check = false;
+		}
+		if (!isPasswordSame(password,password_confirm)){
+			alert ("Password harus sama dengan Confirm Password");
+			check = false;
+		}
+		if (!validatePhone(phone)){
+			alert ("Nomor telepon tidak sesuai format");
+			check = false;
+		}
+		return check;
+		
+
+	}
+	//untuk validasi format email
+	function validateEmail(email) 
+	{
+    	var re = /\S+@\S+\.\S+/;
+    	return re.test(email);
+	}
+	//validasi name, max 20. tidak boleh kosong
+	function validateName(name){
+		if (name==null || name==""){
+			//kosong
+			return false;
+		}else if (name.length > 20){
+			//max 20
+			return false;
+		}else {
+			//tidak kosong, <=20
+			return true;
+		}
+	}
+
+	//untuk validasi phone number pengguna, 9 <= x <= 12
+	//cek masukkan berupa numeric atatu bukan
+	function isNumeric(n) {
+  		return !isNaN(parseFloat(n)) && isFinite(n);
+	}
+	function validatePhone(phone){
+		if (isNumeric(phone)){
+			//numeric, cek panjangnya
+			return (phone.length>=9 && phone.length<=12);
+		}else {
+			return false;
+		}
+	}
+
+	//Confirm password harus sama denga  password
+	function isPasswordSame(password, conPass){
+		if (password=="" || conPass==""){
+			return false;
+		}else {
+			return (password===conPass);	
+		}
+		
+	}
+
+
+	//AJAX
 	//untuk validasi username
 	function validateUsername(str) {
         var xmlhttp = new XMLHttpRequest();
@@ -98,8 +174,10 @@
             	if (this.responseText == 1){//salah
 
             		document.getElementById("oke").src = "salah.jpg";
+            		check = false;
             	}else {//ada
             		document.getElementById("oke").src = "download.png";
+            		check = true;
             	}
                 //document.getElementById("username").innerHTML = 
             }
@@ -114,10 +192,11 @@
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
             	if (this.responseText == 1){//salah
-
+            		check = false;
             		document.getElementById("okee").src = "salah.jpg";
             	}else {//ada
             		document.getElementById("okee").src = "download.png";
+            		check = true;
             	}
             }
         };
