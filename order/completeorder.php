@@ -3,6 +3,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="../style/header.css">
 	<link rel="stylesheet" type="text/css" href="../style/completeorder.css">
+	<script src="validateform.js"></script>
 	<title>Order</title>
 </head>
 <body>
@@ -50,9 +51,14 @@
 
 	<div id="ordercontent">
 		<?php
+			session_start();
 			include '../db.php';
 			$db = new Database();
-			$driverid = $_GET['driverid'];
+
+			$driverid = $_POST['driverid'];
+			//save data to session
+			$_SESSION['driverid'] = $driverid;
+
 			$results = $db -> select("SELECT * from user WHERE id_user = $driverid");
 			foreach ($results as &$result) {
 				echo "<img src='../". $result['prof_pic'] ."'>
@@ -61,7 +67,7 @@
 			}
 		?>
 
-		<form action="#" method="GET">
+		<form action="pickdestination.php" method="POST" onsubmit="return validateForm2()">
 		    <div class="rate">
 		        <input type="radio" id="star5" name="rate" value="5" /><label for="star5" title="text">5 stars</label>
 		        <input type="radio" id="star4" name="rate" value="4" /><label for="star4" title="text">4 stars</label>
@@ -69,7 +75,7 @@
 		        <input type="radio" id="star2" name="rate" value="2" /><label for="star2" title="text">2 stars</label>
 		        <input type="radio" id="star1" name="rate" value="1" /><label for="star1" title="text">1 star</label>
 		    </div>
-			<textarea name="comment" placeholder="Your comment..."></textarea>
+			<textarea id="comment" name="comment" placeholder="Your comment..."></textarea>
 			<button>Complete<br>Order</button>
 		</form>
 	</div>

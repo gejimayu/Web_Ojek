@@ -50,6 +50,7 @@
 		<h2 class="title_driver">PREFERRED DRIVERS:</h2>
 		<div class="chosen_driver">
 			<?php
+				session_start();
 				include '../db.php';
 				$db = new Database();
 				if (isset($_GET['picking_point']))
@@ -58,6 +59,9 @@
 					$destination = $db -> escapeStr($_GET['destination']);
 				if (isset($_GET['preferred_driver']))
 					$preferred = $db -> escapeStr($_GET['preferred_driver']);
+				//save data to session
+				$_SESSION['picking_point'] = $_GET['picking_point'];
+				$_SESSION['destination'] = $_GET['destination'];
 
 				if (isset($preferred)) {
 					$results = $db -> select("SELECT * FROM driver join user
@@ -72,8 +76,8 @@
 										<td id='driver_identification'>
 											<span id='driver_name'>" . $result['name'] . "</span><br>
 											<span id='driver_rating'>☆ ". $result['avgrating'] ."</span> (". $result['num_votes'] ." votes) <br>
-											<form action='completeorder.php' method='GET'>
-												<input type='submit' name='submit' value='I CHOOSE YOU!'></input>
+											<form action='completeorder.php' method='POST'>
+												<button name='driverid' value='". $result['id_driver'] ."'>I CHOOSE YOU!</button>
 											</form>
 										</td>
 									</tr>
@@ -109,7 +113,7 @@
 										<td id='driver_identification'>
 											<span id='driver_name'>" . $result['name'] . "</span><br>
 											<span id='driver_rating'>☆ ". $result['avgrating'] ."</span> (". $result['num_votes'] ." votes) <br>
-											<form id='asd' action='completeorder.php' method='GET'>
+											<form id='asd' action='completeorder.php' method='POST'>
 												<button name='driverid' value='". $result['id_driver'] ."'>I CHOOSE YOU!</button>
 											</form>
 										</td>

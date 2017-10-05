@@ -4,30 +4,18 @@
 	<link rel="stylesheet" type="text/css" href="../style/pickdestination.css">
 	<link rel="stylesheet" type="text/css" href="../style/header.css">
 	<title>Order</title>
-	<script type="text/javascript">
-		function validateForm() {
-			var pick = document.getElementById("picking_point").value;
-			var dest = document.getElementById("destination").value;
-			var check = true;
-			if (pick == "") {
-				document.getElementById("pick_req").innerHTML = "required";
-				check = false;
-			}
-			else {
-				document.getElementById("pick_req").innerHTML = "";
-			}
-			if (dest == "") {
-				document.getElementById("dest_req").innerHTML = "required";
-				check = false;
-			}
-			else {
-				document.getElementById("dest_req").innerHTML = "";
-			}
-			return check;
-		}
-	</script>
+	<script src="validateform.js"></script>
 </head>
 <body>
+	<?php
+		session_start();
+		if (isset($_SESSION['picking_point']) && isset($_SESSION['destination']) && isset($_SESSION['driverid'])) {
+			
+		}
+		session_destroy(); 
+
+	?>
+
 	<div>
 		<p id="hi_username">Hi, <b>pikachu</b> !</p>
 		<h1 id="logo">
