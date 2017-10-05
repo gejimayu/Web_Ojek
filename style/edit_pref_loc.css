@@ -30,15 +30,16 @@
 	width: 20%;
 }
 
+#editbutton #xmarkform{
+	display: inline-block;
+	float: right;
+	margin-right: 5px;
+}
+
 #pencil, #xmark {
 	width: 20px;
 	height: 20px;
 	margin-left: 5px;
-}
-
-#xmark {
-	float: right;
-	margin-right: 5px;
 }
 
 #titlecolumn {

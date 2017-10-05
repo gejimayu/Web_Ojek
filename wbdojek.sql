@@ -42,13 +42,14 @@ VALUES	(1, 0, 0),
 		(6, 0, 0);
 
 CREATE TABLE pref_location (
+	id_loc int NOT NULL AUTO_INCREMENT,
 	id_driver int NOT NULL,
 	location varchar(255),
-	PRIMARY KEY (id_driver, location),
+	PRIMARY KEY (id_loc),
 	FOREIGN KEY (id_driver) REFERENCES driver(id_driver)
 );
 
-INSERT INTO pref_location
+INSERT INTO pref_location(id_driver, location)
 VALUES 	(1, "BEC"),
 		(1, "ITB"),
 		(2, "Jurang"),
