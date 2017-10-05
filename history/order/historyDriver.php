@@ -24,20 +24,23 @@
 
 	<p id="transactionHistory">TRANSACTION HISTORY</p>
 		
-	<table style="border-style: solid; margin-bottom: 40px;" id="tabelOrder">
+	<table id="tabelOrder">
 		<tr>
 			<td id="previousOrder">MY PREVIOUS ORDER</th>
 			<td id="driverHistory">DRIVER HISTORY</th>
 		</tr>
 	</table>
 
-	<div id="divTabelProfile" style="border-style: solid; height: 160px;">
-		<table style="width: 100%;" id="tabelProfile">
+	<div id="divTabelProfile">
+		<table id="tabelProfile">
 			<tr>
-				<td id="profilePict" style="border-style: solid; width: 20%; height: 100px;">Profile Pict here</td>
-				<td style="border-style: solid; width: 60%; padding-left: 50px;">	Profile dll</td>
-				<td><button style="margin-left: 73px; margin-bottom: 80px; width: 80px; height: 35px; background-color: #DA0026; border-radius: 10px; border-color: #000000;" type="submit" class="buttonHIDE" name="hide">HIDE</button></td>
-			</tr>
+				<td id="profilePict"></td>
+				<td>
+					<div>
+						
+					</div>
+				</td>
+				<button type="submit" class="buttonGO" name="register">REGISTER</button>			</tr>
 		</table>
 	</div>
 
