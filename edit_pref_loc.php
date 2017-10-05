@@ -41,8 +41,17 @@
 			<td id="city">Vienna City</td>
 			<td id="editbutton"><img id="pencil" src="vstock/pencil.png"><img id="xmark" src="vstock/forbidden-mark.png"></td>
 		</tr>
-
 	</table>
 
+	<p id="addnewloc">ADD NEW LOCATION:</p>
+
+	<form id="addnewloc">
+		<input type="text" name="loc">
+		<button>ADD</button>
+	</form>
+
+	<form action="#">
+	    <input id="back" type="submit" value="BACK" />
+	</form>
 </body>
 </html>
