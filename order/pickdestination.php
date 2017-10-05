@@ -8,9 +8,26 @@
 </head>
 <body>
 	<?php
+		include '../db.php';
 		session_start();
+		$db = new Database();
+
 		if (isset($_SESSION['picking_point']) && isset($_SESSION['destination']) && isset($_SESSION['driverid'])) {
-			
+			//fetching data from session and post request
+			$id_user = 1;
+			$id_driver = $_SESSION['driverid'];
+			$picking_point = $db -> escapeStr($_SESSION['picking_point']);
+			$destination = $db -> escapeStr($_SESSION['destination']);
+			$rating = $_POST['rate'];
+			$comment = $db -> escapeStr( $_POST['comment']);
+			$datenow = $db -> escapeStr(date("Y-m-d"));
+
+			$result = $db -> query("INSERT INTO order_data(id_driver, id_user, date_order, origin, destination, rating, comment)
+							VALUES ($id_driver, $id_user, ".$datenow.", ".$picking_point.", ".$destination.", 
+									$rating, ". $comment . ")");
+			if ($result === FALSE) {
+				echo $db -> error();
+			}
 		}
 		session_destroy(); 
 

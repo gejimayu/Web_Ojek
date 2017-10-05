@@ -37,6 +37,11 @@
             return "'" . $connection -> real_escape_string($value) . "'";
         }
 
+        public function error() {
+            $connection = $this -> connect();
+            return $connection -> error;
+        }
+        
         // This will be called at the end of the script.
         public function __destruct()
         {
