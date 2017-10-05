@@ -1,23 +1,87 @@
 body {
-  border: 2px solid black;
-  height: 440px; 
-  width: 520px;
-  margin: 100px auto;
+  margin: 0 30%;
 }
 
-h1 {
+#logo {
+  margin-bottom: 0; 
+  padding-bottom: 0;
+  font-family: "Arial";
+}
+ 
+#labelgreen {
+  color: green;
+}
+
+#labelred {
+  color: red;
+}
+
+#hi_username {
+  float: right;
+  margin-bottom: 0;
+}
+
+#logout {
+  float: right;
+}
+
+#extralogo {
+  margin-top: 0; 
+  color: green;
+}
+
+#tableactivity, tr, #tableactivity tr td {
+  border: 1px solid black;
+}
+
+#tableactivity {
+  width: 100%;
+  border-collapse: collapse;
+  color: green;
+}
+
+#tableactivity tr td {
+  font-family: "Arial";
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.5em;
+  width: 33.33%;
+}
+
+
+#current_activity {
+  color: white;
+  background-color: #495A46;
+}
+
+.rest_activity {
+  color: #212121;
+}
+
+h3 {
   font-family: 'Fjalla One', sans-serif;
-  margin: 24px 24px 16px 24px;
+  margin-top: 20px;
+  margin-left: 22px;
+  margin-bottom: 10px;
+  font-size: 2em;
+  color: #212121;
 }
 
-img {
+h2 {
+  font-family: 'Fjalla One', sans-serif;
+  margin-bottom: 6px;
+  color: #212121;
+}
+
+#ava {
   width: 140px;
   height: 130px;
   margin-left: 24px;
   border: 2px solid black;
 }
 
-table {
+#tableUser {
   margin: 20px 24px 0 24px;
   width: 472px;
 }
@@ -27,7 +91,6 @@ table {
   margin-right: 24px;
   width: 288px;
   font-size: 0.8em;
-
 }
 
 #avaBox {

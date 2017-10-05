@@ -10,8 +10,19 @@
 		<?php
 			include 'db.php';
 			$db = new Database();
-			$rows = $db -> select("SELECT * FROM user WHERE id_user=4");
-			$rowsdriver = $db -> select("SELECT * FROM driver WHERE id_driver=4");
+			$userid = $_GET['user_id'];
+			if (isset($_POST['inputName'])) {
+				$inputName = $db -> escapeStr($_POST['inputName']);
+				$rowName = $db -> query("UPDATE user SET name=".$inputName." WHERE id_user=$userid");
+			} if (isset($_POST['inputPhone'])) {
+				$inputPhone = $db -> escapeStr($_POST['inputPhone']);
+				$rowPhone = $db -> query("UPDATE user SET phone_number=".$inputPhone." WHERE id_user=$userid");
+			} if (isset($_POST['statDriver'])){
+				$statDriver = $db -> escapeStr($_POST['statDriver']);
+				$rowStat = $db -> query("UPDATE user SET driver_status=".$statDriver." WHERE id_user=$userid");
+			}
+			$rows = $db -> select("SELECT * FROM user WHERE id_user=$userid");
+			$rowsdriver = $db -> select("SELECT * FROM driver WHERE id_driver=$userid");
 		?>	
 		<div>
 			<p id="hi_username">Hi, <b><?php echo $rows[0]['name'] ?></b>!</p>
@@ -23,15 +34,17 @@
 		</div>
 		<table id="tableactivity">
 			<tr>
-				<td>ORDER</td>
-				<td>HISTORY</td>
-				<td>MY PROFILE</td>
+				<td class="rest_activity">ORDER</td>
+				<td class="rest_activity">HISTORY</td>
+				<td id="current_activity">MY PROFILE</td>
 			</tr>
 		</table>
 		<div class="show_content">
 			<div class="heading_info">
 				<h2>MY PROFILE</h2>
-				<img id ="pencil" src="vstock/pencil.png">
+				<form action="editprofile.php">
+					<input type="image" id="pencil" src="vstock/pencil.png">
+				</form>
 			</div>
 			<div class="show_info">
 				<img id="user" src=<?php echo $rows[0]['prof_pic'] ?>  alt="avatar"><br/>
@@ -39,11 +52,10 @@
 				<div class="usersInfo">
 					<?php echo $rows[0]['name']?> <br/>
 					<?php if ($rows[0]['driver_status']) {
-						echo 'Driver ';
-						echo '|';
+						echo 'Driver | ';
 						echo '<label class="star"> ☆'.
 						$rowsdriver[0]['avgrating'].
-						'</label>(1728 votes) <br/>';
+						'</label> (' . $rowsdriver[0]['num_votes'].') <br/>';
 					} else {
 						echo 'User';
 					}?>
