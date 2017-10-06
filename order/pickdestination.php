@@ -14,7 +14,7 @@
 		$userid = $_GET['user_id'];
 
 		//fetching user data
-		$results = $db -> select("SELECT * FROM user JOIN driver NATURAL JOIN pref_location WHERE id_user = $userid AND id_user = id_driver");
+		$results = $db -> select("SELECT * FROM user WHERE id_user = $userid");
 		$name = $results[0]['name'];
 
 		if (isset($_SESSION['picking_point']) && isset($_SESSION['destination']) && isset($_SESSION['driverid'])) {
