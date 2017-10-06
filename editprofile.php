@@ -11,7 +11,6 @@
 			$db = new Database();
 			$userid = $_GET['user_id'];
 			$rows = $db -> select("SELECT * FROM user WHERE id_user=$userid");
-			// $rowsdriver = $db -> select("SELECT * FROM driver WHERE id_user=$userid");
 		?>	
 		<div>
 			<p id="hi_username">Hi, <b><?php echo $rows[0]['name'] ?></b>!</p>
@@ -35,6 +34,9 @@
 				<div class="edit_ava">
 					<h2>Update profile picture</h2>
 						<input id="avaBox" type="text" disabled>
+						<label for="file-upload" class="custom-file-upload">
+    						<span id="browseOverlay"> Browse... </span>
+						</label>
 						<input name="inputAva" class="upload" id="browseButton" type="file"
 	    onchange="document.getElementById('ava').src = window.URL.createObjectURL(this.files[0])">
 				</div>	
@@ -57,7 +59,6 @@
 												echo '<input type="checkbox" name="statDriver" checked>';
 											else
 												echo '<input type="checkbox" name="statDriver" >';
-
 										?>
 										<span class="slider round"></span>
 									</label>
@@ -70,7 +71,6 @@
 			<form action="showprofile.php?user_id=3" method="POST">
 				<input id="backButton" type="submit" value="BACK">
 			</form>
-			
 		</div>
 	</body>
 </html>
