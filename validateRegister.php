@@ -28,13 +28,10 @@
 		if ($box=="true"){
 			//masuk ke profile
 			header("Location:profile.php/user_id=$id");	
-		}else {
+		}
+		else {
 			//masuk ke order
 			header("Location:pickdestination.php/user_id=$id");
-		}
-			
-		
-
 	}
 
 ?>
