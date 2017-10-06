@@ -45,14 +45,14 @@
 			<h1 id="logo">
 				<span id="labelgreen">PR</span>-<span id="labelred">OJEK</span>
 			</h1>
-			<a id="logout" href="#">Logout</a>
+			<a id="logout" href="login.php">Logout</a>
 			<p id="extralogo">wush... wush... ngeeeeenggg...<p/>
 		</div>
 		<table id="tableactivity">
 			<tr>
-				<td class="rest_activity">ORDER</td>
-				<td class="rest_activity">HISTORY</td>
-				<td id="current_activity">MY PROFILE</td>
+				<td class="rest_activity"><a href="order/pickdestination.php?user_id=<?php echo $userid?>">ORDER</a></td>
+				<td class="rest_activity"><a href="userHistory.php?user_id=<?php echo $userid?>">HISTORY</a></td>
+				<td id="current_activity"><a href="showprofile.php?user_id=<?php echo $userid?>">MY PROFILE</a></td>
 			</tr>
 		</table>
 		<div class="show_content">
@@ -85,7 +85,9 @@
 					echo
 					'<div class="heading_loc">
 						<h3>PREFERRED LOCATIONS:</h3>
-						<img id ="pencil2" src="vstock/pencil.png">
+						<form action="edit_pref_loc.php?user_id='.$userid.'" method="POST">
+							<input type="image" id="pencil2" src="vstock/pencil.png">
+						</form>
 					</div>';
 
 					echo '<div class="pref_loc">';

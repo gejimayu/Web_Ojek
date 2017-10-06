@@ -8,9 +8,8 @@
     src: url("fonts/RobotoSlab-Bold.ttf");
 }
 
-
 body {
-  margin: 50px 30%;
+  margin: 0 30%;
 }
 
 #logo {
@@ -60,12 +59,15 @@ body {
 }
 
 #current_activity {
-  color: white;
   background-color: #495A46;
 }
 
-.rest_activity {
-  color: #212121;
+#current_activity a {
+  color: white;
+}
+
+.rest_activity a {
+  color: black;
 }
 
 h2 {
@@ -137,7 +139,7 @@ h3 {
   width: 30px;
   height: 30px;
   margin-top: 32px;
-  margin-left: 22%;
+  margin-left: 250px;
 }
 
 .star {
@@ -168,4 +170,8 @@ h3 {
 
 #triangle {
   font-size: 250%;
+}
+
+#tableactivity a {
+  text-decoration: none;
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="style/header.css">
+	<link rel="stylesheet" type="text/css" href="style/kepala.css">
 	<link rel="stylesheet" type="text/css" href="style/edit_pref_loc.css">
 	<title>Order</title>
 </head>
@@ -36,12 +36,12 @@
 	</div>
 
 	<table id="tableactivity">
-		<tr>
-			<td class="rest_activity">ORDER</td>
-			<td class="rest_activity">HISTORY</td>
-			<td id="current_activity">MY PROFILE</td>
-		</tr>
-	</table>
+			<tr>
+				<td class="rest_activity"><a href="order/pickdestination.php?user_id=<?php echo $userid?>">ORDER</a></td>
+				<td class="rest_activity"><a href="userHistory.php?user_id=<?php echo $userid?>">HISTORY</a></td>
+				<td id="current_activity"><a href="showprofile.php?user_id=<?php echo $userid?>">MY PROFILE</a></td>
+			</tr>
+		</table>
 
 	<p id="editprefloc">EDIT PREFERRED LOCATIONS</p>
 
@@ -79,7 +79,7 @@
 		<button>ADD</button>
 	</form>
 
-	<form action="#">
+	<form action="showprofile.php?user_id=<?php echo $userid ?>" method="POST">
 	    <input id="back" type="submit" value="BACK" />
 	</form>
 </body>

@@ -75,7 +75,7 @@
 		<tr>
 			<td id="current_activity"><a href="pickdestination.php?user_id=<?php echo $userid?>">ORDER</a></td>
 			<td class="rest_activity"><a href="../userHistory.php?user_id=<?php echo $userid?>">HISTORY</a></td>
-			<td class="rest_activity"><a href="">MY PROFILE</a></td>
+			<td class="rest_activity"><a href="../showprofile.php?user_id=<?php echo $userid?>">MY PROFILE</a></td>
 		</tr>
 	</table>
 

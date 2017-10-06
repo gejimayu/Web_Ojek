@@ -8,9 +8,16 @@
 <body>
 
 	<?php
-		include 'updateHistory.php';
+		include 'db.php';
+		$db = new Database();
+
+		//jika terdapat post request dari hide button
+		if (isset($_POST['hide'])){
+			$history_id = $_POST['hide'];
+			$resultUpdate = $db -> query("UPDATE driver_history SET hide=1 WHERE id_history=$history_id");
+		}
+
 		$userid = $_GET['user_id'];
-		$_SESSION["userID"] = $userid;
 		//fetching user data
 		$results = $db -> select("SELECT * FROM user WHERE id_user = $userid");
 		$name = $results[0]['name'];//nama driver
@@ -24,11 +31,11 @@
 		<p id="extralogo">wush... wush... ngeeeeenggg...</p>
 		</div>
 		<table id="tableactivity">
-		<tr>
-			<td class="rest_activity">ORDER</td>
-			<td id="current_activity">HISTORY</td>
-			<td class="rest_activity">MY PROFILE</td>
-		</tr>
+			<tr>
+				<td class="rest_activity"><a href="order/pickdestination.php?user_id='.$userid.'">ORDER</a></td>
+				<td id="current_activity"><a href="userHistory.php?user_id='.$userid.'">HISTORY</a></td>
+				<td class="rest_activity"><a href="showprofile.php?user_id='.$userid.'">MY PROFILE</a></td>
+			</tr>
 		</table>
 
 		<p id="transactionHistory" >TRANSACTION HISTORY</p>
@@ -39,65 +46,57 @@
 				<td id="driverHistory"><a href=""driverHistory.php?user_id='.$userid.'">DRIVER HISTORY</a></th>
 			</tr>
 		</table>';
-		
-		//$userid = $_GET['user_id'];
-		$tanggal = "";
-		$customerID = "";
-		$customerName ="";
-		$awal = "";
-		$akhir ="";
-		$rating = "";
-		$comment = "";
-		$profPictCustomer = "";
-		$resultDriver = $db -> select("SELECT * FROM driver_history WHERE id_driver = '$userid'");
-			foreach ($resultDriver as &$result) {
-			$historyID = $result['id_history'];
-			$customerID = $result['id_user'];
-			$tanggal = $result['date_order'];
-			$customerName = $result['customer_name'];
-			$awal = $result['origin'];
-			$akhir = $result['destination'];
-			$rating = $result['rating'];
-			$comment = $result['comment'];
-			$hide = $result['hide'];
-			$searchPP = $db -> select("SELECT prof_pic FROM user WHERE id_user = '$customerID'");
-			$profPictCustomer = $searchPP[0]['prof_pic'];
-			$_SESSION["historyID"] = $historyID;
-			if (!$hide){
 
-			echo 
-			'<form method="post" action="driverHistory.php">
-				<div id="divTabelProfile" >
-					<table id="tabelProfile">
-						<tr>
-							<td id="profilePict" >
-								<div class="containerPict">
-									<img id="pictProfile" src= '. $profPictCustomer .  '>
-								</div>
-							</td>
-							<td id="profileDll">
-								<div id="currentDate">
-									'.$tanggal.'
-								</div>
-								<div id="customerName">
-									'. $customerName.'
-								</div>
-								<div id="tujuan">
-									'. $awal.' -> '. $akhir. '
-								</div>
-								<div id="rating">
-									gave <span id="colorRating">'.$rating .'</span> stars for this order
-								</div>
-								<div id="comment">
-									and left comment: <br>
-									   <span id="userComment"> '.$comment .'</span> 
-								</div>
-							</td>
-							<td><button id="hideButton" type="submit" class="buttonHIDE" name="hide">HIDE</td>
-						</tr>
-					</table>
-				</div>
-			</form>';
+		if ($results[0]['driver_status'] == 'true') {
+			$resultDriver = $db -> select("SELECT * FROM driver_history WHERE id_driver = '$userid'");
+			foreach ($resultDriver as &$result) {
+				$historyID = $result['id_history'];
+				$customerID = $result['id_user'];
+				$tanggal = $result['date_order'];
+				$customerName = $result['customer_name'];
+				$awal = $result['origin'];
+				$akhir = $result['destination'];
+				$rating = $result['rating'];
+				$comment = $result['comment'];
+				$hide = $result['hide'];
+				$searchPP = $db -> select("SELECT prof_pic FROM user WHERE id_user = '$customerID'");
+				$profPictCustomer = $searchPP[0]['prof_pic'];
+
+				if (!$hide){
+					echo 
+					'<form method="post" action="driverHistory.php?user_id='.$userid.'">
+						<div id="divTabelProfile" >
+							<table id="tabelProfile">
+								<tr>
+									<td id="profilePict" >
+										<div class="containerPict">
+											<img id="pictProfile" src= '. $profPictCustomer .  '>
+										</div>
+									</td>
+									<td id="profileDll">
+										<div id="currentDate">
+											'.$tanggal.'
+										</div>
+										<div id="customerName">
+											'. $customerName.'
+										</div>
+										<div id="tujuan">
+											'. $awal.' -> '. $akhir. '
+										</div>
+										<div id="rating">
+											gave <span id="colorRating">'.$rating .'</span> stars for this order
+										</div>
+										<div id="comment">
+											and left comment: <br>
+											   <span id="userComment"> '.$comment .'</span> 
+										</div>
+									</td>
+									<td><button id="hideButton" type="submit" name="hide" value="'.$historyID.'">HIDE</td>
+								</tr>
+							</table>
+						</div>
+					</form>';
+				}
 			}
 		}
 	?>

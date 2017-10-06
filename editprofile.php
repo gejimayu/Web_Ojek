@@ -16,14 +16,14 @@
 			<h1 id="logo">
 				<span id="labelgreen">PR</span>-<span id="labelred">OJEK</span>
 			</h1>
-			<a id="logout" href="#">Logout</a>
+			<a id="logout" href="login.php">Logout</a>
 			<p id="extralogo">wush... wush... ngeeeeenggg...<p/>
 		</div>
 		<table id="tableactivity">
 			<tr>
-				<td>ORDER</td>
-				<td>HISTORY</td>
-				<td id="current_activity">MY PROFILE</td>
+				<td class="rest_activity"><a href="order/pickdestination.php?user_id=<?php echo $userid?>">ORDER</a></td>
+				<td class="rest_activity"><a href="userHistory.php?user_id=<?php echo $userid?>">HISTORY</a></td>
+				<td id="current_activity"><a href="showprofile.php?user_id=<?php echo $userid?>">MY PROFILE</a></td>
 			</tr>
 		</table>
 		<div style="margin: 0 20px">

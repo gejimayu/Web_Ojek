@@ -60,8 +60,16 @@ body {
   background-color: #495A46;
 }
 
-.rest_activity {
-  color: #212121;
+#current_activity a {
+  color: white;
+  text-decoration: none;
+
+}
+
+.rest_activity a {
+  color: black;
+  text-decoration: none;
+
 }
 
 h3 {
