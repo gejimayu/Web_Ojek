@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS user_history;
+DROP TABLE IF EXISTS driver_history;
 DROP TABLE IF EXISTS order_data;
 DROP TABLE IF EXISTS pref_location;
 DROP TABLE IF EXISTS driver;
@@ -68,11 +70,39 @@ CREATE TABLE order_data (
 	id_driver int NOT NULL,
 	id_user int NOT NULL,
 	date_order DATE,
-	origin varchar(100),
-	destination varchar(100),
+	origin varchar(255),
+	destination varchar(255),
 	rating int,
 	comment varchar(255),
 	PRIMARY KEY (id_order),
 	FOREIGN KEY (id_driver) REFERENCES driver(id_driver),
 	FOREIGN KEY (id_user) REFERENCES user(id_user)
+);
+
+CREATE TABLE driver_history (
+	id_history int NOT NULL AUTO_INCREMENT,
+	id_driver int NOT NULL,
+	id_user int NOT NULL,
+	date_order DATE,
+	customer_name varchar(255),
+	origin varchar(255),
+	destination varchar(255),
+	rating int,
+	comment varchar(255),
+	hide tinyint(1),
+	PRIMARY KEY (id_history)
+);
+
+CREATE TABLE user_history (
+	id_history int NOT NULL AUTO_INCREMENT,
+	id_user int NOT NULL,
+	id_driver int NOT NULL,
+	date_order DATE,
+	customer_name varchar(255),
+	origin varchar(255),
+	destination varchar(255),
+	rating int,
+	comment varchar(255),
+	hide tinyint(1),
+	PRIMARY KEY(id_history)
 );

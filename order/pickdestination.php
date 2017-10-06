@@ -18,6 +18,7 @@
 		$name = $results[0]['name'];
 
 		if (isset($_SESSION['picking_point']) && isset($_SESSION['destination']) && isset($_SESSION['driverid'])) {
+
 			//fetching data from session and post request
 			$id_driver = $_SESSION['driverid'];
 			$picking_point = $db -> escapeStr($_SESSION['picking_point']);
@@ -26,12 +27,37 @@
 			$comment = $db -> escapeStr( $_POST['comment']);
 			$datenow = $db -> escapeStr(date("Y-m-d"));
 
-			$result = $db -> query("INSERT INTO order_data(id_driver, id_user, date_order, origin, destination, rating, comment)
-									VALUES ($id_driver, $userid, ".$datenow.", ".$picking_point.", ".$destination.", 
-									$rating, ". $comment . ")");
-			if ($result === FALSE) {
+			//fetching drivername
+			$drivername = $db -> select("SELECT * from user join driver WHERE id_user = $id_driver");
+			$drivername = $drivername[0]['name'];
+			
+			//format
+			$nameofuser = "'" . $name . "'";
+			$drivername = "'" . $drivername . "'";
+
+			//insert order data
+			$db -> query("INSERT INTO order_data(id_driver, id_user, date_order, origin, destination, rating, comment)
+							VALUES ($id_driver, $userid, ".$datenow.", ".$picking_point.", ".$destination.", 
+							$rating, ". $comment . ")");
+
+			//update rating driver and votes
+			$result = $db -> select("SELECT * from driver WHERE id_driver = $id_driver");
+			$votes = $result[0]['num_votes'] + 1;
+			$avgrating = (($result[0]['avgrating'] * $result[0]['num_votes']) + $rating) / $votes;
+			$db -> query("UPDATE driver SET avgrating=$avgrating, num_votes=$votes WHERE id_driver=$id_driver");
+
+			//insert history data
+			$check = $db -> query("INSERT INTO driver_history(id_driver, id_user, date_order, customer_name,
+														origin, destination, rating, comment, hide)
+							VALUES ($id_driver, $userid, ".$datenow.", ".$nameofuser.", ".$picking_point.", ".$destination.", 
+							$rating, ".$comment.", 0)");
+			$check = $db -> query("INSERT INTO user_history(id_user, id_driver, date_order, customer_name,
+														origin, destination, rating, comment, hide)
+							VALUES ($userid, $id_driver, ".$datenow.", ".$drivername.", ".$picking_point.", ".$destination.", 
+							$rating, ".$comment.", 0)");
+
+			if ($check == false)
 				echo $db -> error();
-			}
 		}
 		session_destroy(); 
 	?>

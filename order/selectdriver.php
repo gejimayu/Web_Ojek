@@ -110,7 +110,7 @@
 				else {
 					$results = $db -> select("SELECT DISTINCT name, prof_pic, avgrating, id_driver, num_votes 
 											FROM driver NATURAL JOIN pref_location join user
-											WHERE id_user = id_driver AND 
+											WHERE id_user <> $userid AND id_user = id_driver AND 
 											( ". $pickingpoint . " = location OR " . $destination . " = location)");
 					if ($results == false)
 						echo "<p>Nothing to display :(</p>";

@@ -35,7 +35,7 @@
 		$success_message = 'Selamat anda terdaftar di layanan ini<br>';
 		if ($driver=="true"){
 			//masuk ke profile
-			header("Location:profile.php/user_id=$id");	
+			header("Location:profile.php?user_id=$id");	
 		}
 		else {
 			//masuk ke order
