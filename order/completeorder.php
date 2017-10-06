@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="../style/header.css">
+	<link rel="stylesheet" type="text/css" href="../style/kepala.css">
 	<link rel="stylesheet" type="text/css" href="../style/completeorder.css">
 	<script src="validateform.js"></script>
 	<title>Order</title>
@@ -22,7 +22,7 @@
 		<h1 id="logo">
 			<span id="labelgreen">PR</span>-<span id="labelred">OJEK</span>
 		</h1>
-		<a id="logout" href="#">Logout</a>
+		<a id="logout" href="../login.php">Logout</a>
 		<p id="extralogo">wush... wush... ngeeeeenggg...</p>
 	</div>
 

@@ -3,7 +3,6 @@ body {
 	
 }
 
-
 #logo {
 	margin-bottom: 0; 
 	padding-bottom: 0;
@@ -82,8 +81,8 @@ body #transactionHistory {
 	font-family: "Arial";
 	font-weight: bold;
 	text-align: center;
-	padding: 10px;
-	font-size: 1.5em;
+	padding: 13px;
+	font-size: 1.3em;
 	width: 50%;
 }
 
@@ -98,6 +97,24 @@ body #transactionHistory {
 }
 
 .rest_activity {
-	color: rgb(42, 90, 27);
+	color: black;
 }
 
+#current_activity a {
+	text-decoration: none;
+	color: white;
+}
+
+.rest_activity a {
+	text-decoration: none;
+	color: black;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+#previousOrder:hover {
+	background-color: yellow;
+}

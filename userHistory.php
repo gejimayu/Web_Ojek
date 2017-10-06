@@ -3,7 +3,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="driverHistory.css">
 	<link rel="stylesheet" type="text/css" href="history.css">
-	<title>History Driver</title>
+	<title>History User</title>
 </head>
 <body>
 
@@ -24,23 +24,22 @@
 		<p id="extralogo">wush... wush... ngeeeeenggg...</p>
 		</div>
 		<table id="tableactivity">
-		<tr>
-			<td class="rest_activity">ORDER</td>
-			<td id="current_activity">HISTORY</td>
-			<td class="rest_activity">MY PROFILE</td>
-		</tr>
+			<tr>
+				<td "class="rest_activity"><a href="order/pickdestination.php?user_id='.$userid.'">ORDER</a></td>
+				<td id="current_activity"><a href="userHistory.php?user_id='.$userid.'">HISTORY</a></td>
+				<td class="rest_activity"><a href="">MY PROFILE</a></td>
+			</tr>
 		</table>
 
 		<p id="transactionHistory" >TRANSACTION HISTORY</p>
 			
 		<table id="tabelOrder">
 			<tr>
-				<td id="previousOrder"><a href="userHistory.php?user_id='.$userid.'">MY PREVIOUS ORDER</a></th>
-				<td id="driverHistory"><a href=""driverHistory.php?user_id='.$userid.'">DRIVER HISTORY</a></th>
+				<td id="driverHistory"><a href="userHistory.php?user_id='.$userid.'">MY PREVIOUS ORDER</a></th>
+				<td id="previousOrder"><a href="driverHistory.php?user_id='.$userid.'">DRIVER HISTORY</a></th>
 			</tr>
 		</table>';
 		
-		//$userid = $_GET['user_id'];
 		$tanggal = "";
 		$customerID = "";
 		$customerName ="";
@@ -49,7 +48,7 @@
 		$rating = "";
 		$comment = "";
 		$profPictCustomer = "";
-		$resultDriver = $db -> select("SELECT * FROM driver_history WHERE id_driver = '$userid'");
+		$resultDriver = $db -> select("SELECT * FROM user_history WHERE id_user = '$userid'");
 			foreach ($resultDriver as &$result) {
 			$historyID = $result['id_history'];
 			$customerID = $result['id_user'];
@@ -86,10 +85,12 @@
 									'. $awal.' -> '. $akhir. '
 								</div>
 								<div id="rating">
-									gave <span id="colorRating">'.$rating .'</span> stars for this order
-								</div>
+									You rated: ';
+										for ($i=0; $i < $rating; $i++)
+											echo '<span id="colorRating">☆</span>';
+								echo '</div>
 								<div id="comment">
-									and left comment: <br>
+									You commented: <br>
 									   <span id="userComment"> '.$comment .'</span> 
 								</div>
 							</td>

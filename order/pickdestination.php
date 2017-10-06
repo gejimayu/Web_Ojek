@@ -2,7 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../style/pickdestination.css">
-	<link rel="stylesheet" type="text/css" href="../style/header.css">
+	<link rel="stylesheet" type="text/css" href="../style/kepala.css">
 	<title>Order</title>
 	<script src="validateform.js"></script>
 </head>
@@ -67,15 +67,15 @@
 		<h1 id="logo">
 			<span id="labelgreen">PR</span>-<span id="labelred">OJEK</span>
 		</h1>
-		<a id="logout" href="#">Logout</a>
+		<a id="logout" href="../login.php">Logout</a>
 		<p id="extralogo">wush... wush... ngeeeeenggg...</p>
 	</div>
 
 	<table id="tableactivity">
 		<tr>
-			<td id="current_activity">ORDER</td>
-			<td class="rest_activity">HISTORY</td>
-			<td class="rest_activity">MY PROFILE</td>
+			<td id="current_activity"><a href="pickdestination.php?user_id=<?php echo $userid?>">ORDER</a></td>
+			<td class="rest_activity"><a href="../userHistory.php?user_id=<?php echo $userid?>">HISTORY</a></td>
+			<td class="rest_activity"><a href="">MY PROFILE</a></td>
 		</tr>
 	</table>
 

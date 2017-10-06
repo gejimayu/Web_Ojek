@@ -37,6 +37,7 @@ body {
 #tableactivity {
 	width: 100%;
 	border-collapse: collapse;
+	color: black;
 }
 
 #tableactivity tr td {
@@ -94,5 +95,15 @@ body {
 }
 
 .rest_activity {
-	color: rgb(42, 90, 27);
+	color: black;
+}
+
+#current_activity a {
+	text-decoration: none;
+	color: white;
+}
+
+.rest_activity a {
+	text-decoration: none;
+	color: black;
 }
