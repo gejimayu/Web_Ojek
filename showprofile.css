@@ -1,3 +1,14 @@
+@font-face {
+    font-family:"Fjalla One";
+    src: url("fonts/FjallaOne-Regular.ttf");
+}
+
+@font-face {
+    font-family:"Roboto Slab";
+    src: url("fonts/RobotoSlab-Bold.ttf");
+}
+
+
 body {
   margin: 50px 30%;
 }
@@ -46,7 +57,15 @@ body {
   padding: 10px;
   font-size: 1.5em;
   width: 33.33%;
-  color: rgb(42, 90, 27);
+}
+
+#current_activity {
+  color: white;
+  background-color: #495A46;
+}
+
+.rest_activity {
+  color: #212121;
 }
 
 h2 {
@@ -64,7 +83,7 @@ h2 {
 #user {
   width: 100px;
   height: 100px;
-  border: 5px solid black;
+  border: 5px solid #212121;
   border-radius: 100%;
 }
 
@@ -78,7 +97,7 @@ h2 {
 .usersInfo {
   font-family: 'Roboto Slab', serif;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 19px;
   color: #232323;
 }
 
@@ -104,14 +123,21 @@ h3 {
 
 .heading_loc {
   display: inline-flex;
-  width: 100%;
+  width: 200%;
 }
 
-.heading_loc img {
-  width: 35px;
-  height: 35px;
+#pencil1 {
+  width: 30px;
+  height: 30px;
+  margin-top: 20px;
+  margin-left: 340px;
+}
+
+#pencil2 {
+  width: 30px;
+  height: 30px;
   margin-top: 32px;
-  margin-left: 40%; 
+  margin-left: 22%;
 }
 
 .star {
@@ -140,16 +166,6 @@ h3 {
   font-size: 1.2em;
 }
 
-#triangle1 {
+#triangle {
   font-size: 250%;
-}
-
-#triangle2 {
-  font-size: 250%;
-  margin-left: 50px;
-}
-
-#triangle3 {
-  font-size: 250%;
-  margin-left: 100px;
 }

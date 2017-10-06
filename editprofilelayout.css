@@ -1,42 +1,125 @@
+@font-face {
+    font-family:"Fjalla One";
+    src: url("fonts/FjallaOne-Regular.ttf");
+}
+
 body {
-  border: 2px solid black;
-  height: 440px; 
-  width: 520px;
-  margin: 100px auto;
+  margin: 0 30%;
 }
 
-h1 {
+#logo {
+  margin-bottom: 0; 
+  padding-bottom: 0;
+  font-family: "Arial";
+}
+ 
+#labelgreen {
+  color: green;
+}
+
+#labelred {
+  color: red;
+}
+
+#hi_username {
+  float: right;
+  margin-bottom: 0;
+}
+
+#logout {
+  float: right;
+}
+
+#extralogo {
+  margin-top: 0; 
+  color: green;
+}
+
+#tableactivity, tr, #tableactivity tr td {
+  border: 1px solid black;
+}
+
+#tableactivity {
+  width: 100%;
+  border-collapse: collapse;
+  color: black;
+}
+
+#tableactivity tr td {
+  font-family: "Arial";
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.5em;
+  width: 33.33%;
+}
+
+
+#current_activity {
+  color: white;
+  background-color: #495A46;
+}
+
+.rest_activity {
+  color: #212121;
+}
+
+h3 {
   font-family: 'Fjalla One', sans-serif;
-  margin: 24px 24px 16px 24px;
+  margin-top: 20px;
+  margin-left: 22px;
+  margin-bottom: 10px;
+  font-size: 2em;
+  color: #212121;
 }
 
-img {
-  width: 140px;
-  height: 130px;
+h2 {
+  font-family: 'Fjalla One', sans-serif;
+  margin-bottom: 6px;
+  color: #212121;
+}
+
+#ava {
+  width: 150px;
+  height: 140px;
   margin-left: 24px;
   border: 2px solid black;
 }
 
-table {
+#tableUser {
   margin: 20px 24px 0 24px;
   width: 472px;
 }
 
 .edit_ava {
   float: right;
-  margin-right: 24px;
+  margin-right: 40px;
   width: 288px;
   font-size: 0.8em;
-
 }
 
 #avaBox {
-  width: 210px;
+  width: 210px; 
 }
 
-#browseButton {
+input[type="file"] {
   width: 66px;
   float: right;
+  position: absolute;
+  margin-right: 30px;
+  overflow: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 260px;
+  right: 470px;
+}
+
+#browseOverlay {
+    border: 1px solid grey;
+    background-color: #d1d1d1;
+    display: inline-block;
+    padding: 4px 8px;
+    cursor: pointer;
 }
 
 .edit_profile {
@@ -63,43 +146,22 @@ table {
 #saveButton {
   background-color:  #66cc00;
   margin-top: 50px;
-  margin-right: 24px;
+  margin-right: 50px;
   float: right;
   padding: 6px 16px;
   border-radius: 8px;
   border: 1px solid black;
   font-family: 'Times New Roman', serif;
-  font-size: 1.2em;
+  font-size: 0.9em;
 }
 
 .box {
   height: 24px;
   width: 280px;
-  float: right;
+  margin-left: 60px;
+  font-family: 'Arial', sans-serif;
+  font-size: 1.1em;
 }
-
-
-/*
-.imgUpload {
-    overflow: hidden;
-    float: right;
-}
-.imgUpload input.browseButton {
-    position: absolute;
-    font-size: 20px;
-    cursor: pointer;
-    opacity: 0;
-    filter: alpha(opacity=0);
-}
-
-.imgUpload span {
-    font-size: 0.5em;
-    background: #D9D9D9;
-    padding: 6px;
-    border: 1px solid gray;
-    border-bottom: 1px solid gray;
-}
-*/
 
 .switch {
   position: relative;
@@ -139,10 +201,6 @@ table {
 
 input:checked + .slider {
   background-color: #09810A;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #09810A;
 }
 
 input:checked + .slider:before {
