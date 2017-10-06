@@ -5,17 +5,19 @@
 	<link rel="stylesheet" type="text/css" href="history.css">
 	<title>History Driver</title>
 	<script>
-		function myFunction(x){
-			document.getElementById("divTabelProfile").style.display = "none";
-		}
+		driver_history
+		date_order
 	</script>
 </head>
 <body>
 
 	<?php
+		session_start();
 		include '../db.php';
+		include 'updateHistory.php';
 		$db = new Database();
 		$userid = 2;
+		$_SESSION["userID"] = $userid;
 		//fetching user data
 		$results = $db -> select("SELECT * FROM user WHERE id_user = $userid");
 		$name = $results[0]['name'];//nama driver
@@ -44,7 +46,6 @@
 				<td id="driverHistory">DRIVER HISTORY</th>
 			</tr>
 		</table>';
-
 		
 		//$userid = $_GET['user_id'];
 		$tanggal = "";
@@ -55,53 +56,56 @@
 		$rating = "";
 		$comment = "";
 		$profPictCustomer = "";
-		$counter = 0;
-		$resultDriver = $db -> select("SELECT * FROM order_data join user WHERE id_driver = '$userid' AND user.id_user = order_data.id_user");
-		foreach ($resultDriver as &$result) {
-			$orderID = $result['id_order'];
+		$resultDriver = $db -> select("SELECT * FROM driver_history WHERE id_driver = '$userid'");
+			foreach ($resultDriver as &$result) {
+			$historyID = $result['id_history'];
 			$customerID = $result['id_user'];
 			$tanggal = $result['date_order'];
-			$customerName = $result['name'];
+			$customerName = $result['customer_name'];
 			$awal = $result['origin'];
 			$akhir = $result['destination'];
 			$rating = $result['rating'];
 			$comment = $result['comment'];
+			$hide = $result['hide'];
 			$searchPP = $db -> select("SELECT prof_pic FROM user WHERE id_user = '$customerID'");
 			$profPictCustomer = $searchPP[0]['prof_pic'];
-			echo 
-		
+			$_SESSION["historyID"] = $historyID;
+			if (!$hide){
 
-		'<div id="divTabelProfile" >
-			<table id="tabelProfile">
-				<tr>
-					
-					<td id="profilePict" >
-						<div class="containerPict">
-							<img id="pictProfile" src= '. $profPictCustomer .  '>
-						</div>
-					</td>
-					<td id="profileDll">
-						<div id="currentDate">
-							'.$tanggal.'
-						</div>
-						<div id="customerName">
-							'. $customerName.'
-						</div>
-						<div id="tujuan">
-							'. $awal.' -> '. $akhir. '
-						</div>
-						<div id="rating">
-							gave <span id="colorRating">'.$rating .'</span> stars for this order
-						</div>
-						<div id="comment">
-							and left comment: <br>
-							   <span id="userComment"> '.$comment .'</span> 
-						</div>
-					</td>
-					<td><button id="hideButton" type="submit" class="buttonHIDE" name="hide" onclick="myFunction('.$orderID.')">HIDE</button></td>
-				</tr>
-			</table>
-		</div>';
+			echo 
+			'<form method="post" action="driverHistory.php">
+				<div id="divTabelProfile" >
+					<table id="tabelProfile">
+						<tr>
+							<td id="profilePict" >
+								<div class="containerPict">
+									<img id="pictProfile" src= '. $profPictCustomer .  '>
+								</div>
+							</td>
+							<td id="profileDll">
+								<div id="currentDate">
+									'.$tanggal.'
+								</div>
+								<div id="customerName">
+									'. $customerName.'
+								</div>
+								<div id="tujuan">
+									'. $awal.' -> '. $akhir. '
+								</div>
+								<div id="rating">
+									gave <span id="colorRating">'.$rating .'</span> stars for this order
+								</div>
+								<div id="comment">
+									and left comment: <br>
+									   <span id="userComment"> '.$comment .'</span> 
+								</div>
+							</td>
+							<td><button id="hideButton" type="submit" class="buttonHIDE" name="hide">HIDE</td>
+						</tr>
+					</table>
+				</div>
+			</form>';
+			}
 		}
 	?>
 </body>
