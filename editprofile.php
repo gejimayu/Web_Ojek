@@ -9,8 +9,9 @@
 		<?php
 			include 'db.php';
 			$db = new Database();
-			$rows = $db -> select("SELECT * FROM user WHERE id_user=4");
-			$rowsdriver = $db -> select("SELECT * FROM driver WHERE id_driver=4");
+			$userid = $_GET['user_id'];
+			$rows = $db -> select("SELECT * FROM user WHERE id_user=$userid");
+			// $rowsdriver = $db -> select("SELECT * FROM driver WHERE id_user=$userid");
 		?>	
 		<div>
 			<p id="hi_username">Hi, <b><?php echo $rows[0]['name'] ?></b>!</p>
@@ -27,38 +28,43 @@
 				<td id="current_activity">MY PROFILE</td>
 			</tr>
 		</table>
-		<h3>EDIT PROFILE INFORMATION</h3>
-			<img id="ava" src="vstock/blank_ava.png" alt="avatar">
-			<div class="edit_ava">
-				<h2>Update profile picture</h2>
-					<input id="avaBox" type="text" name="inputAva" disabled>
-					<input class="upload" id="browseButton" type="file" 
-    onchange="document.getElementById('ava').src = window.URL.createObjectURL(this.files[0])">
-			</div>
-		<div class="edit_profile">
-			<form action="showprofile.php" method="POST">
-				<table id="tableUser">
-					<tr>
-						<td class="labelTabel">Your Name</td>
-						<td><input class="box" type="text" name="inputName"></td>
-					</tr>
-					<tr>
-						<td class="labelTabel">Phone</td>
-						<td><input class="box" type="number" name="inputPhone"></td>
-					</tr>
-					<tr>
-						<td class="labelTabel">Status Driver</td>
-						<td>
-							<label class="switch">
-								<input type="checkbox" name="statDriver">
-								<span class="slider round"></span>
-							</label>
-						</td>
-					</tr>
-				</table>
-				<input id="backButton" type="submit" value="BACK">
-				<input id="saveButton" type="submit" value="SAVE">
+		<div style="margin: 0 20px">
+			<h3>EDIT PROFILE INFORMATION</h3>
+			<form action="showprofile.php?user_id=<?php echo $userid?>" method="POST" enctype="multipart/form-data">
+				<img id="ava" src=<?php echo $rows[0]['prof_pic']?> alt="avatar">
+				<div class="edit_ava">
+					<h2>Update profile picture</h2>
+						<input id="avaBox" type="text" disabled>
+						<input name="inputAva" class="upload" id="browseButton" type="file"
+	    onchange="document.getElementById('ava').src = window.URL.createObjectURL(this.files[0])">
+				</div>	
+				<div class="edit_profile">
+						<table id="tableUser">
+							<tr>
+								<td class="labelTabel">Your Name</td>
+								<td><input class="box" type="text" name="inputName" value=<?php echo $rows[0]['name']?>></td>
+							</tr>
+							<tr>
+								<td class="labelTabel">Phone</td>
+								<td><input class="box" type="number" name="inputPhone" value=<?php echo $rows[0]['phone_number']?>></td>
+							</tr>
+							<tr>
+								<td class="labelTabel">Status Driver</td>
+								<td>
+									<label class="switch">
+										<input type="checkbox" name="statDriver" value=<?php echo $rows[0]['driver_status']?>>
+										<span class="slider round"></span>
+									</label>
+								</td>
+							</tr>
+						</table>
+						<input id="saveButton" type="submit" value="SAVE" name="submit">
+				</div>
 			</form>
+			<form action="showprofile.php?user_id=3" method="POST">
+				<input id="backButton" type="submit" value="BACK">
+			</form>
+			
 		</div>
 	</body>
 </html>

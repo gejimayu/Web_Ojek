@@ -88,13 +88,13 @@ h2 {
 
 .edit_ava {
   float: right;
-  margin-right: 24px;
+  margin-right: 40px;
   width: 288px;
   font-size: 0.8em;
 }
 
 #avaBox {
-  width: 210px;
+  width: 210px; 
 }
 
 #browseButton {
@@ -139,6 +139,8 @@ h2 {
   height: 24px;
   width: 280px;
   float: right;
+  font-family: 'Arial', sans-serif;
+  font-size: 1.1em;
 }
 
 
