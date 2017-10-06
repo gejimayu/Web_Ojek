@@ -3,12 +3,12 @@
 	$db = new Database();
 	$email = $_GET['email'];
 
-	//retrieve username
+	//retrieve email
 	$sql = "SELECT * FROM user WHERE email='$email'";
 	$results = $db -> select($sql);
-	if ($results == false)
-		echo 0;
+	if ($results == false) //found same email
+		echo "acc";
 	else
-		echo 1;
-	
+		echo "reject";
+
 ?>

@@ -3,31 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php if(!empty($success_message)) { ?>
-	<meta http-equiv="refresh" content="3;url=login.php" />
-	<?php } ?>
-
 	<title>SIGN UP</title>
 	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<script type="text/javascript" src="validasi.js"></script>
 </head>
 <body>
 	<div class="header">
 		<div id="signup">SIGN UP</div>
 	</div>
-<<<<<<< HEAD
-
-	<?php if(!empty($success_message)) { ?>	
-		<div id="success-message"><?php if(isset($success_message)) echo $success_message; ?></div>
-	<?php } ?>
-	<?php if(!empty($error_message)) { ?>	
-		<div id="error-message"><?php if(isset($error_message)) echo $error_message; ?></div>
-	<?php } ?>
-	<?php if(!empty($error_message_udah)) { ?>	
-		<div id="error-message-udah"><?php if(isset($error_message_udah)) echo $error_message_udah; ?></div>
-	<?php } ?>
-
-=======
->>>>>>> 2c9c8d956b0a5596bd422863ad26a8cbaa6ca063
 	<form method="post" action="register.php" name="form" onsubmit="return validateForm()">
 		<div class="form-element">
 			<table>

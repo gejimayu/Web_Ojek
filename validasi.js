@@ -7,10 +7,10 @@
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-            	if (this.responseText == 1){//salah
+            	if (this.responseText === "reject"){//salah
             		document.getElementById("oke").src = "salah.jpg";
             		checkUsername = false;
-            	}else {//ada
+            	}else {//lolos
             		document.getElementById("oke").src = "download.png";
             		checkUsername = true;
             	}
@@ -19,13 +19,12 @@
         xmlhttp.open("GET", "validator.php?username=" + str, true);
         xmlhttp.send();
     }
-    
     //untuk validasi email
 	function validateEmail(str) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-            	if (this.responseText == 1){//salah
+            	if (this.responseText === "reject" || !validEmail(str)){//salah
             		checkEmail = false;
             		document.getElementById("okee").src = "salah.jpg";
             	}else {//ada
@@ -54,20 +53,12 @@
 			alert ("nama ko kosong?");
 			check = false;
 		}
-		if (username==""){
-			alert("username tidak boleh kosong");
-			check = false;
-		}
 		if (!isPasswordSame(password,password_confirm)){
 			alert ("Password harus sama dengan Confirm Password");
 			check = false;
 		}
 		if (!validatePhone(phone)){
 			alert ("Nomor telepon tidak sesuai format");
-			check = false;
-		}
-		if (!validEmail(email)){
-			alert ("email tidak sesuai format");
 			check = false;
 		}
 		return (check && checkUsername && checkEmail);
