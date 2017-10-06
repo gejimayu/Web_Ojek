@@ -61,6 +61,10 @@
 			alert ("Nomor telepon tidak sesuai format");
 			check = false;
 		}
+		if (email==""){
+		    alert ("Email tidak boleh kosong");
+		    check = false;
+		}
 		return (check && checkUsername && checkEmail);
 		
 
