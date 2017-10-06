@@ -11,14 +11,10 @@
 		include '../db.php';
 		session_start();
 		$db = new Database();
-		$userid = $_GET['user_id'];
-
-		//fetching user data
-		$results = $db -> select("SELECT * FROM user JOIN driver NATURAL JOIN pref_location WHERE id_user = $userid AND id_user = id_driver");
-		$name = $results[0]['name'];
 
 		if (isset($_SESSION['picking_point']) && isset($_SESSION['destination']) && isset($_SESSION['driverid'])) {
 			//fetching data from session and post request
+			$id_user = 1;
 			$id_driver = $_SESSION['driverid'];
 			$picking_point = $db -> escapeStr($_SESSION['picking_point']);
 			$destination = $db -> escapeStr($_SESSION['destination']);
@@ -27,17 +23,18 @@
 			$datenow = $db -> escapeStr(date("Y-m-d"));
 
 			$result = $db -> query("INSERT INTO order_data(id_driver, id_user, date_order, origin, destination, rating, comment)
-									VALUES ($id_driver, $userid, ".$datenow.", ".$picking_point.", ".$destination.", 
+							VALUES ($id_driver, $id_user, ".$datenow.", ".$picking_point.", ".$destination.", 
 									$rating, ". $comment . ")");
 			if ($result === FALSE) {
 				echo $db -> error();
 			}
 		}
 		session_destroy(); 
+
 	?>
 
 	<div>
-		<p id="hi_username">Hi, <b><?php echo $name ?></b> !</p>
+		<p id="hi_username">Hi, <b>pikachu</b> !</p>
 		<h1 id="logo">
 			<span id="labelgreen">PR</span>-<span id="labelred">OJEK</span>
 		</h1>
@@ -76,7 +73,7 @@
 		</tr>
 	</table>
 
-	<form action="selectdriver.php?user_id=<?php echo $userid ?>" method="POST" onsubmit="return validateForm()">
+	<form action="selectdriver.php" method="GET" onsubmit="return validateForm()">
 		<table id="table_form">
 			<tr>
 				<td class="inputlabel">Picking Point</td>

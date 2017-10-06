@@ -7,18 +7,8 @@
 	<title>Order</title>
 </head>
 <body>
-	<?php
-		include '../db.php';
-		$db = new Database();
-		$userid = $_GET['user_id'];
-
-		//fetching user data
-		$results = $db -> select("SELECT * FROM user JOIN driver NATURAL JOIN pref_location WHERE id_user = $userid AND id_user = id_driver");
-		$name = $results[0]['name'];
-	?>
-
 	<div>
-		<p id="hi_username">Hi, <b><?php echo $name ?></b> !</p>
+		<p id="hi_username">Hi, <b>pikachu</b> !</p>
 		<h1 id="logo">
 			<span id="labelgreen">PR</span>-<span id="labelred">OJEK</span>
 		</h1>
@@ -62,7 +52,9 @@
 	<div id="ordercontent">
 		<?php
 			session_start();
-			
+			include '../db.php';
+			$db = new Database();
+
 			$driverid = $_POST['driverid'];
 			//save data to session
 			$_SESSION['driverid'] = $driverid;
@@ -75,7 +67,7 @@
 			}
 		?>
 
-		<form action="pickdestination.php?user_id=<?php echo $userid ?>" method="POST" onsubmit="return validateForm2()">
+		<form action="pickdestination.php" method="POST" onsubmit="return validateForm2()">
 		    <div class="rate">
 		        <input type="radio" id="star5" name="rate" value="5" /><label for="star5" title="text">5 stars</label>
 		        <input type="radio" id="star4" name="rate" value="4" /><label for="star4" title="text">4 stars</label>

@@ -6,18 +6,8 @@
 	<title>Order</title>
 </head>
 <body>
-	<?php
-		include '../db.php';
-		$db = new Database();
-		$userid = $_GET['user_id'];
-
-		//fetching user data
-		$results = $db -> select("SELECT * FROM user JOIN driver NATURAL JOIN pref_location WHERE id_user = $userid AND id_user = id_driver");
-		$name = $results[0]['name'];
-	?>
-
 	<div>
-		<p id="hi_username">Hi, <b><?php echo $name	?></b> !</p>
+		<p id="hi_username">Hi, <b>pikachu</b> !</p>
 		<h1 id="logo">
 			<span id="labelgreen">PR</span>-<span id="labelred">OJEK</span>
 		</h1>
@@ -61,16 +51,18 @@
 		<div class="chosen_driver">
 			<?php
 				session_start();
-				if (isset($_POST['picking_point']))
-					$pickingpoint = $db -> escapeStr($_POST['picking_point']);
-				if (isset($_POST['destination']))
-					$destination = $db -> escapeStr($_POST['destination']);
-				if (isset($_POST['preferred_driver']))
-					$preferred = $db -> escapeStr($_POST['preferred_driver']);
+				include '../db.php';
+				$db = new Database();
+				if (isset($_GET['picking_point']))
+					$pickingpoint = $db -> escapeStr($_GET['picking_point']);
+				if (isset($_GET['destination']))
+					$destination = $db -> escapeStr($_GET['destination']);
+				if (isset($_GET['preferred_driver']))
+					$preferred = $db -> escapeStr($_GET['preferred_driver']);
 				//save data to session
-				$_SESSION['picking_point'] = $_POST['picking_point'];
-				$_SESSION['destination'] = $_POST['destination'];
-				
+				$_SESSION['picking_point'] = $_GET['picking_point'];
+				$_SESSION['destination'] = $_GET['destination'];
+
 				if (isset($preferred)) {
 					$results = $db -> select("SELECT * FROM driver join user
 											WHERE id_user = id_driver AND name = " . $preferred);
@@ -84,7 +76,7 @@
 										<td id='driver_identification'>
 											<span id='driver_name'>" . $result['name'] . "</span><br>
 											<span id='driver_rating'>☆ ". $result['avgrating'] ."</span> (". $result['num_votes'] ." votes) <br>
-											<form action='completeorder.php?user_id=$userid' method='POST'>
+											<form action='completeorder.php' method='POST'>
 												<button name='driverid' value='". $result['id_driver'] ."'>I CHOOSE YOU!</button>
 											</form>
 										</td>
@@ -104,12 +96,11 @@
 		<h2 class="title_driver">OTHER DRIVERS:</h2>
 		<div class="chosen_driver">
 			<?php
-				if (!isset($_POST['picking_point']) || !isset($_POST['destination'])) {
+				if (!isset($_GET['picking_point']) || !isset($_GET['destination'])) {
 					echo "<p>Nothing to display :(</p>";
 				}
 				else {
-					$results = $db -> select("SELECT DISTINCT name, prof_pic, avgrating, id_driver, num_votes 
-											FROM driver NATURAL JOIN pref_location join user
+					$results = $db -> select("SELECT * FROM driver NATURAL JOIN pref_location join user
 											WHERE id_user = id_driver AND 
 											( ". $pickingpoint . " = location OR " . $destination . " = location)");
 					if ($results == false)
@@ -122,7 +113,7 @@
 										<td id='driver_identification'>
 											<span id='driver_name'>" . $result['name'] . "</span><br>
 											<span id='driver_rating'>☆ ". $result['avgrating'] ."</span> (". $result['num_votes'] ." votes) <br>
-											<form id='asd' action='completeorder.php?user_id=$userid' method='POST'>
+											<form id='asd' action='completeorder.php' method='POST'>
 												<button name='driverid' value='". $result['id_driver'] ."'>I CHOOSE YOU!</button>
 											</form>
 										</td>
