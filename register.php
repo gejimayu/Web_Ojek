@@ -3,16 +3,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<?php if(!empty($success_message)) { ?>
 	<meta http-equiv="refresh" content="3;url=login.php" />
 	<?php } ?>
+
 	<title>SIGN UP</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 <body>
 	<div class="header">
 		<div id="signup">SIGN UP</div>
 	</div>
+
 	<?php if(!empty($success_message)) { ?>	
 		<div id="success-message"><?php if(isset($success_message)) echo $success_message; ?></div>
 	<?php } ?>
@@ -22,13 +25,13 @@
 	<?php if(!empty($error_message_udah)) { ?>	
 		<div id="error-message-udah"><?php if(isset($error_message_udah)) echo $error_message_udah; ?></div>
 	<?php } ?>
-	<form method="post" action="register.php" name="form" onsubmit="return (validateForm())">
+
+	<form method="post" action="register.php" name="form" onsubmit="return validateForm()">
 		<div class="form-element">
 			<table>
 				<tr>
 					<th><label id="yournameLabel" for="name">Yourname</label></th>
 					<th><input type="text" name="name" id="name"  placeholder="your fullname" /></th>
-					
 				</tr>
 			</table>
 		</div>

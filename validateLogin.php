@@ -3,24 +3,21 @@
 
 	//jika tombol GO! ditekan
 	if (isset($_POST['login'])){
-		//connect ke db
-		$db = mysqli_connect('localhost', 'root', '', 'registration');
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-		$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-		$result = mysqli_query($db,$query);
+		include 'db.php';
+		$db = new Database();
+
+		$username = $db -> escapeStr($_POST['username']);
+		$password = $db -> escapeStr($_POST['password']);
+		$query = "SELECT * FROM user WHERE username=".$username." AND password=".$password;
+		$rows = $db -> select ($query);
 		
 		//ada berarti
-		if(mysqli_num_rows($result))
-		{	
-	    	$row = mysqli_fetch_assoc($result);
-	    	$id = $row['id'];
-	    	header("Location:tes.html?id=". $id);
-		}else {//belom daftar
+		if ($rows == false) {
 			$error = "Anda belum mendaftar";
 		}
+		else {	
+	    	$id = $rows[0]['id_user'];
+	    	header("Location:/wbdojek/order/pickdestination.php?user_id=$id");
+		}
 	}
-
-
-
 ?>
