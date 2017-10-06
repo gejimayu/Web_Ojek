@@ -3,6 +3,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="style/kepala.css">
 	<link rel="stylesheet" type="text/css" href="style/edit_pref_loc.css">
+	<script src="confirmationdelete.js"></script>
 	<title>Order</title>
 </head>
 <body>
@@ -62,7 +63,8 @@
 						<td id='city'>$location</td>
 						<td id='editbutton'>
 							<img id='pencil' src='vstock/pencil.png'>
-							<form id='xmarkform' action='edit_pref_loc.php?user_id=$userid' method='POST'>
+							<form id='xmarkform' action='edit_pref_loc.php?user_id=$userid' method='POST' 
+									onsubmit='return onConfirm()'>
 								<input id='xmark' type='image' name='delete' value='". $location ."' src='vstock/forbidden-mark.png'/>
 							</form>
 						</td>
