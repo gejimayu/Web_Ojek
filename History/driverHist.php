@@ -5,9 +5,21 @@
 	<link rel="stylesheet" type="text/css" href="history.css">
 	<title>History Driver</title>
 </head>
-<body class="coba">
+<body>
+
+	<?php
+		include '../db.php';
+		$db = new Database();
+		//$userid = $_GET['user_id'];
+		$userid = 3;
+
+		//fetching user data
+		$results = $db -> select("SELECT * FROM user WHERE id_user = $userid");
+		$name = $results[0]['name'];
+	?>
+
 	<div>
-		<p id="hi_username">Hi, <b>pikachu</b> !</p>
+		<p id="hi_username">Hi, <b><?php echo $name ?></b> !</p>
 		<h1 id="logo">
 			<span id="labelgreen">PR</span>-<span id="labelred">OJEK</span>
 		</h1>
