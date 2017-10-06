@@ -1,0 +1,135 @@
+html {
+	background-color: white;
+}
+
+
+body {
+	border-style: solid;
+	padding: 0 30px 50px 5px;
+	background-color: #8ABD3C; 
+	margin: 80px 30% 0 30%;
+	border-radius: 50px;
+	border-width: 10px;
+	border-color: #066E27;
+	width: 320px;
+	height: 450px;
+	font-family: "Arial";
+	
+}
+
+.header {
+	height: 90px;
+	padding-left: 20px;
+	padding-bottom: 20px;
+}
+#signup {
+	padding-top: 20px;
+	padding-left: 50px;
+	font-size: 50px;
+	color: #066E27;
+}
+
+#success-message {
+	padding-left: 50px;
+	color: #181b21;
+	margin-bottom: 50px;
+}
+
+#error-message {
+	color: #ff3a30;
+	margin-bottom: 10px;
+	padding-left: 50px;
+}
+
+#error-message-udah {
+	color: #ff3a30;
+	margin-bottom: 10px;
+	padding-left: 50px;
+}
+
+
+form {
+
+	width: 110%;
+}
+
+
+
+label {
+	color: #066E27;
+	display: inline-block;
+	text-align: left;
+	margin-right: 20px;
+}
+
+.form-element label {
+	font-size: 15px;
+    display: inline-block;
+    width: 100px;
+    margin-bottom: 10px;
+   
+}
+
+#yournameLabel, #usernameLabel, #emailLabel, #passwordLabel, #confirmLabel, #phoneLabel {
+	width: 150px;
+}
+
+input {
+	border-width: 1.5px;
+	border-style: solid;
+	height: 25px;
+	border-color: #066E27;
+	padding-left: 5px;
+}
+
+#username {
+	width: 120px;
+}
+
+#oke {
+	width: 25px;
+}
+
+#email {
+	width: 120px;
+}
+
+#okee {
+	width: 25px;
+}
+
+.no_account {
+	margin-top: 20px;
+	position: absolute;
+}
+
+input #phone {
+	margin-bottom: 10px;
+}
+
+.box {
+	padding-right: 10px;
+}
+
+.driveralso {
+	color: #066E27;
+}
+
+a {
+	text-decoration: underline;
+	color: #000000;
+
+}
+.buttonGO {
+	width: 90px;
+	height: 50px;
+	position: relative;
+	top: 20px;
+	left: 227px;
+	border-radius: 10px;
+	color: black;
+	background-color: #7ED808;
+	border-style: solid;
+	font-size: 15px;
+	border-color: #000000 #000000;
+}

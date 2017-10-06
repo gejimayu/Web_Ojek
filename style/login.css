@@ -1,0 +1,70 @@
+html {
+	background-color: white;
+}
+
+body {
+	border-style: solid;
+	padding:0 30px 100px 20px;
+	background-color: #8ABD3C; 
+	margin: 30px 30% 0 30%;
+	border-radius: 40px;
+	border-width: 7px;
+	border-color: #066E27;
+	width: 300px;
+}
+
+
+h1 {
+	text-align: center;
+	color: #066E27;
+	margin-bottom: 50px;
+
+}
+
+label {
+	color: #066E27;
+	display: inline-block;
+	width: 140px;
+	text-align: center;
+}
+
+
+input {
+	height: 20px;
+}
+
+#usernameLabel {
+	font-size: 25px;
+	padding-left: 0;
+	text-align: left;
+}
+
+#passwordLabel {
+	padding-left: 0;
+	text-align: left;
+	font-size: 25px;
+}
+.no_account {
+	margin-top: 40px;
+	position: absolute;
+}
+
+a {
+	text-decoration: underline;
+	color: #000000;
+
+}
+.buttonGO {
+	margin-left: 12px;
+	margin-top: 20px;
+	width: 70px;
+	height: 30px;
+	position: relative;
+	top: 20px;
+	left: 227px;
+	border-radius: 5px;
+	color: black;
+	background-color: #7ED808;
+	border-style: solid;
+	border-color: #000000;
+}

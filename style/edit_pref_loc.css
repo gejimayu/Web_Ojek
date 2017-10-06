@@ -1,0 +1,75 @@
+@font-face {
+    font-family: "Fjalla One";
+    src: url("../fonts/FjallaOne-Regular.ttf");
+}
+
+#editprefloc {
+	font-family: "Fjalla One";
+	font-size: 2.3em;
+	color: #333333;
+}
+
+#tableprefloc tr td{
+	border: 1px solid grey;
+	padding: 5px;	
+}
+
+#tableprefloc {
+	border-collapse: collapse;
+	font-size: 1.2em;
+	width: 80%;
+	font-family: "Arial";
+	color: #333333;
+}
+
+#city {
+	width: 70%;
+}
+
+#editbutton {
+	width: 20%;
+}
+
+#editbutton #xmarkform{
+	display: inline-block;
+	float: right;
+	margin-right: 5px;
+}
+
+#pencil, #xmark {
+	width: 20px;
+	height: 20px;
+	margin-left: 5px;
+}
+
+#titlecolumn {
+	text-align: center;
+}
+
+#addnewloc {
+	font-family: "Fjalla One";
+	font-size: 1.6em;
+	color: #333333;
+	margin-bottom: 2px;
+}
+
+#addnewloc input {
+	width: 50%;
+	padding: 6px;
+}
+
+#addnewloc button {
+	margin-left: 13px;
+	background-color:  #66cc00;
+	border-radius: 9px;
+	border: 1px solid black;
+	padding: 8px 20px;
+}
+
+#back {
+	background-color:  red;
+	border-radius: 9px;
+	border: 1px solid black;
+	padding: 8px 20px;
+	margin-top: 50px;
+}
