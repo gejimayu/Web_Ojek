@@ -3,7 +3,6 @@
 	<head>
 		<title> Edit Profile </title>
 			<link rel="stylesheet" href="editprofilelayout.css">
-			<link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet'>
 	</head>
 	<body>
 		<?php

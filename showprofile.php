@@ -3,8 +3,6 @@
 	<head>
 		<title>MyProfile</title>
 		<link rel="stylesheet" href="showprofile.css">
-		<link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet'>
-		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
 	</head>
 	<body>
 		<?php
