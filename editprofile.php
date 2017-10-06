@@ -52,7 +52,13 @@
 								<td class="labelTabel">Status Driver</td>
 								<td>
 									<label class="switch">
-										<input type="checkbox" name="statDriver" value=<?php echo $rows[0]['driver_status']?>>
+										<?php
+											if ($rows[0]['driver_status'] == 'true')
+												echo '<input type="checkbox" name="statDriver" checked>';
+											else
+												echo '<input type="checkbox" name="statDriver" >';
+
+										?>
 										<span class="slider round"></span>
 									</label>
 								</td>
