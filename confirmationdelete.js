@@ -1,3 +1,3 @@
 function onConfirm() {
-    return confirm("Are you surewdwd ? ");
+    return confirm("Are you sure ? ");
 }

@@ -8,10 +8,10 @@
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
             	if (this.responseText === "reject"){//salah
-            		document.getElementById("oke").src = "salah.jpg";
+            		document.getElementById("checked1").innerHTML = "X";
             		checkUsername = false;
             	}else {//lolos
-            		document.getElementById("oke").src = "download.png";
+            		document.getElementById("checked1").innerHTML = "✔";
             		checkUsername = true;
             	}
             }
@@ -19,6 +19,7 @@
         xmlhttp.open("GET", "validator.php?username=" + str, true);
         xmlhttp.send();
     }
+
     //untuk validasi email
 	function validateEmail(str) {
         var xmlhttp = new XMLHttpRequest();
@@ -26,9 +27,9 @@
             if (this.readyState == 4 && this.status == 200) {
             	if (this.responseText === "reject" || !validEmail(str)){//salah
             		checkEmail = false;
-            		document.getElementById("okee").src = "salah.jpg";
+            		document.getElementById("checked2").innerHTML = "X";
             	}else {//ada
-            		document.getElementById("okee").src = "download.png";
+            		document.getElementById("checked2").innerHTML = "✔";
             		checkEmail = true;
             	}
             }
@@ -36,8 +37,6 @@
         xmlhttp.open("GET", "validatorEmail.php?email=" + str, true);
         xmlhttp.send();
     }
-
-
 
 	//untuk validasi email,username, dan phone number menggunakan javascript
 	function validateForm(){
@@ -62,14 +61,14 @@
 			check = false;
 		}
 		return (check && checkUsername && checkEmail);
-		
-
 	}
+
 	//untuk validasi format email
 	function validEmail(e) {
     	var filter = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
     	return String(e).search (filter) != -1;
 	}
+
 	//validasi name, max 20. tidak boleh kosong
 	function validateName(name){
 		if (name==null || name==""){
@@ -89,6 +88,7 @@
 	function isNumeric(n) {
   		return !isNaN(parseFloat(n)) && isFinite(n);
 	}
+
 	function validatePhone(phone){
 		if (isNumeric(phone)){
 			//numeric, cek panjangnya

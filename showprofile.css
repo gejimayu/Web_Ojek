@@ -108,6 +108,10 @@ h2 {
   width: 100%;
 }
 
+.heading_info form {
+  width: 100px;
+}
+
 .heading_info img {
   float: right;
   width: 35px;

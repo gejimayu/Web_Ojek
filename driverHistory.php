@@ -65,33 +65,33 @@
 				if (!$hide){
 					echo 
 					'<form method="post" action="driverHistory.php?user_id='.$userid.'">
-						<div id="divTabelProfile" >
-							<table id="tabelProfile">
+						<div class="divTabelProfile" >
+							<table class="tabelProfile">
 								<tr>
-									<td id="profilePict" >
+									<td class="profilePict" >
 										<div class="containerPict">
-											<img id="pictProfile" src= '. $profPictCustomer .  '>
+											<img class="pictProfile" src= '. $profPictCustomer .  '>
 										</div>
 									</td>
-									<td id="profileDll">
-										<div id="currentDate">
+									<td class="profileDll">
+										<div class="currentDate">
 											'.$tanggal.'
 										</div>
-										<div id="customerName">
+										<div class="customerName">
 											'. $customerName.'
 										</div>
-										<div id="tujuan">
+										<div class="tujuan">
 											'. $awal.' -> '. $akhir. '
 										</div>
-										<div id="rating">
-											gave <span id="colorRating">'.$rating .'</span> stars for this order
+										<div class="rating">
+											gave <span class="colorRating">'.$rating .'</span> stars for this order
 										</div>
-										<div id="comment">
+										<div class="comment">
 											and left comment: <br>
-											   <span id="userComment"> '.$comment .'</span> 
+											   <span class="userComment"> '.$comment .'</span> 
 										</div>
 									</td>
-									<td><button id="hideButton" type="submit" name="hide" value="'.$historyID.'">HIDE</td>
+									<td class="profileButton"><button class="hideButton" type="submit" name="hide" value="'.$historyID.'">HIDE</td>
 								</tr>
 							</table>
 						</div>

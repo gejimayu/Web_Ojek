@@ -50,49 +50,49 @@
 		$resultDriver = $db -> select("SELECT * FROM user_history WHERE id_user = '$userid'");
 		foreach ($resultDriver as &$result) {
 			$historyID = $result['id_history'];
-			$customerID = $result['id_user'];
+			$driverID = $result['id_driver'];
 			$tanggal = $result['date_order'];
-			$customerName = $result['customer_name'];
+			$driverName = $result['customer_name'];
 			$awal = $result['origin'];
 			$akhir = $result['destination'];
 			$rating = $result['rating'];
 			$comment = $result['comment'];
 			$hide = $result['hide'];
-			$searchPP = $db -> select("SELECT prof_pic FROM user WHERE id_user = '$customerID'");
+			$searchPP = $db -> select("SELECT prof_pic FROM user WHERE id_user = '$driverID'");
 			$profPictCustomer = $searchPP[0]['prof_pic'];
 
 			if (!$hide){
 				echo 
-				'<form method="post" action="userHistory.php?user_id='.$userid.'">
-					<div id="divTabelProfile" >
-						<table id="tabelProfile">
+				'<form class="ProfileForm" method="post" action="userHistory.php?user_id='.$userid.'">
+					<div class="divTabelProfile" >
+						<table class="tabelProfile">
 							<tr>
-								<td id="profilePict" >
+								<td class="profilePict" >
 									<div class="containerPict">
-										<img id="pictProfile" src= '. $profPictCustomer .  '>
+										<img class="pictProfile" src= '. $profPictCustomer .  '>
 									</div>
 								</td>
-								<td id="profileDll">
-									<div id="currentDate">
+								<td class="profileDll">
+									<div class="currentDate">
 										'.$tanggal.'
 									</div>
-									<div id="customerName">
-										'. $customerName.'
+									<div class="customerName">
+										'. $driverName.'
 									</div>
-									<div id="tujuan">
+									<div class="tujuan">
 										'. $awal.' -> '. $akhir. '
 									</div>
-									<div id="rating">
+									<div class="rating">
 										You rated: ';
 											for ($i=0; $i < $rating; $i++)
-												echo '<span id="colorRating">☆</span>';
+												echo '<span class="colorRating">☆</span>';
 									echo '</div>
-									<div id="comment">
+									<div class="comment">
 										You commented: <br>
-										   <span id="userComment"> '.$comment .'</span> 
+										   <span class="userComment"> '.$comment .'</span> 
 									</div>
 								</td>
-								<td><button id="hideButton" type="submit" name="hide" value="'.$historyID.'">HIDE</td>
+								<td class="profileButton"><button class="hideButton" type="submit" name="hide" value="'.$historyID.'">HIDE</td>
 							</tr>
 						</table>
 					</div>

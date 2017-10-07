@@ -1,7 +1,6 @@
 <?php
 	//register user
 	if (isset($_POST['register'])){
-
 		include 'db.php';
 		$db = new Database();
 
@@ -15,7 +14,7 @@
 		}else {
 			$driver = "false";
 		}
-		$profpicdefault = "img/naruto1.png";
+		$profpicdefault = "img/blank_ava.png";
 		//inserting data regis to db
 		$query = "INSERT INTO user (name, username, prof_pic, email, password, phone_number, driver_status) 
 					VALUES('$name', '$username', '$profpicdefault', '$email', '$password', '$phone', '$driver')";
@@ -35,7 +34,7 @@
 		$success_message = 'Selamat anda terdaftar di layanan ini<br>';
 		if ($driver=="true"){
 			//masuk ke profile
-			header("Location:profile.php?user_id=$id");	
+			header("Location:showprofile.php?user_id=$id");	
 		}
 		else {
 			//masuk ke order

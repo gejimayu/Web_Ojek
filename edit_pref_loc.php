@@ -24,8 +24,9 @@
 		}
 
 		//fetching user data
-		$results = $db -> select("SELECT * FROM user JOIN driver NATURAL JOIN pref_location WHERE id_user = $userid AND id_user = id_driver");
+		$results = $db -> select("SELECT * FROM user WHERE id_user = $userid");
 		$name = $results[0]['name'];
+		$results = $db -> select("SELECT * FROM pref_location WHERE id_driver = $userid");
 	?>
 	<div>
 		<p id="hi_username">Hi, <b><?php echo $name?></b> !</p>
@@ -53,23 +54,25 @@
 			<td>Actions</td>
 		</tr>
 		<?php
-			$cnt = 0;
-			foreach ($results as &$result) {
-				$cnt = $cnt + 1;
-				$location = $result['location'];
-				echo "
-					<tr>
-						<td>$cnt</td>
-						<td id='city'>$location</td>
-						<td id='editbutton'>
-							<img id='pencil' src='vstock/pencil.png'>
-							<form id='xmarkform' action='edit_pref_loc.php?user_id=$userid' method='POST' 
-									onsubmit='return onConfirm()'>
-								<input id='xmark' type='image' name='delete' value='". $location ."' src='vstock/forbidden-mark.png'/>
-							</form>
-						</td>
-					</tr>
-				";
+			if ($results != false) {
+				$cnt = 0;
+				foreach ($results as &$result) {
+					$cnt = $cnt + 1;
+					$location = $result['location'];
+					echo "
+						<tr>
+							<td>$cnt</td>
+							<td id='city'>$location</td>
+							<td id='editbutton'>
+								<img id='pencil' src='vstock/pencil.png'>
+								<form id='xmarkform' action='edit_pref_loc.php?user_id=$userid' method='POST' 
+										onsubmit='return onConfirm()'>
+									<input id='xmark' type='image' name='delete' value='". $location ."' src='vstock/forbidden-mark.png'/>
+								</form>
+							</td>
+						</tr>
+					";
+				}
 			}
 		?>
 	</table>

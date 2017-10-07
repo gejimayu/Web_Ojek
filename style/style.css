@@ -1,32 +1,30 @@
-html {
-	background-color: white;
+@font-face {
+    font-family: 'Fjalla One';
+    src: url("../fonts/FjallaOne-Regular.ttf");
 }
-
 
 body {
-	border-style: solid;
-	padding: 0 30px 50px 5px;
-	background-color: #8ABD3C; 
-	margin: 80px 30% 0 30%;
-	border-radius: 50px;
-	border-width: 10px;
-	border-color: #066E27;
-	width: 320px;
-	height: 450px;
-	font-family: "Arial";
-	
+	margin-left: 50px;
 }
 
-.header {
-	height: 90px;
-	padding-left: 20px;
-	padding-bottom: 20px;
+.content {
+	padding:0 30px 100px 20px;
+	background-color: #8ABD3C; 
+	margin: 50px 30%;
+	height: 400px;
+	width: 400px;
+	border-style: solid;
+	border-radius: 15%;
+	border-width: 10px;
+	border-color: #066E27;
 }
-#signup {
-	padding-top: 20px;
-	padding-left: 50px;
-	font-size: 50px;
+
+#title {
+	text-align: center;
 	color: #066E27;
+	margin-bottom: 20px;
+	font-family: 'Fjalla One', serif;
+	font-size: 50px;
 }
 
 #success-message {
@@ -47,89 +45,69 @@ body {
 	padding-left: 50px;
 }
 
-
-form {
-
-	width: 110%;
-}
-
-
-
-label {
+.userLabel {
+	font-family: 'Arial', serif;
 	color: #066E27;
-	display: inline-block;
+	font-size: 18px;
+	font-weight: 400;
 	text-align: left;
-	margin-right: 20px;
 }
 
-.form-element label {
-	font-size: 15px;
-    display: inline-block;
-    width: 100px;
-    margin-bottom: 10px;
-   
+#checkbox {
+	width: 15px;
+	height: 15px;
 }
 
-#yournameLabel, #usernameLabel, #emailLabel, #passwordLabel, #confirmLabel, #phoneLabel {
-	width: 150px;
-}
-
-input {
-	border-width: 1.5px;
-	border-style: solid;
-	height: 25px;
-	border-color: #066E27;
-	padding-left: 5px;
-}
-
-#username {
-	width: 120px;
-}
-
-#oke {
-	width: 25px;
-}
-
-#email {
-	width: 120px;
-}
-
-#okee {
-	width: 25px;
-}
-
-.no_account {
-	margin-top: 20px;
-	position: absolute;
-}
-
-input #phone {
-	margin-bottom: 10px;
-}
-
-.box {
-	padding-right: 10px;
-}
-
-.driveralso {
+#also {
+	font-family: 'Arial', serif;
 	color: #066E27;
+	font-size: 18px;
+	font-weight: 400;
+	padding-top: 20px;
 }
 
-a {
-	text-decoration: underline;
-	color: #000000;
-
+.also2 {
+	margin-top: 25px;
 }
-.buttonGO {
-	width: 90px;
-	height: 50px;
-	position: relative;
-	top: 20px;
-	left: 227px;
-	border-radius: 10px;
-	color: black;
+
+#already {
+	margin-top: 30px;
+	display: inline-block;
+}
+
+#register {
+	padding: 9px 4px;
 	background-color: #7ED808;
-	border-style: solid;
-	font-size: 15px;
-	border-color: #000000 #000000;
+	border-radius: 5px;
+	font-weight: bold;
+	border: 2px solid black;
+	font-family: 'Times New Roman', sans-serif;
+	font-size: 18px;
+	color: #262626;
+	float: right;
+	margin-top: 20px;
+}
+
+table td {
+	width: 40%;
+}
+
+#box {
+	height: 20px;
+	border: 1px solid #066E27;
+	padding: 5px;
+	width: 140%;
+}
+
+#boxbeda {
+	height: 20px;
+	width: 115%;
+	border: 1px solid #066E27;
+	padding: 5px;
+}
+
+.checked {
+	color: #066E27;
+	float: right;
+	margin-right: 20px;
 }

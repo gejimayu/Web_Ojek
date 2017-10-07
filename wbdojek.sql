@@ -18,14 +18,14 @@ CREATE TABLE user (
 );
 
 INSERT INTO user(name, username, prof_pic, email, password, phone_number, driver_status) 
-VALUES 	("Pika", "pikapika", "img/pika1.png", "cobacoba@gmail.com", "asd123", "085723289999", "true"),
+VALUES 	("Pika1", "pikapika", "img/pika1.png", "cobacoba@gmail.com", "asd123", "085723289999", "true"),
 		("Pika2", "pikapika2", "img/pika2.png", "cobacoba@gmail.com", "asd123", "085723289999", "true"),
-		("Pika3", "pikapika3", "img/pika2.png", "cobacoba3@gmail.com", "asd123", "085723289999", "true"),
+		("Pika3", "pikapika3", "img/kakashi.png", "cobacoba3@gmail.com", "asd123", "085723289999", "true"),
 		("Pika4", "pikapika4", "img/naruto1.png", "cobacoba4@gmail.com", "asd123", "08239293929", "true"),
 		("Pika5", "pikapika5", "img/naruto2.jpg", "cobacoba5@gmail.com", "asd123", "08239293929", "true"),
 		("Pika6", "pikapika6", "img/naruto3.jpg", "cobacoba6@gmail.com", "asd123", "08239293929", "true"),
-		("Pika7", "pikapika7", "img/pika1.png", "cobacoba@gmail.com", "asd123", "085723289999", "false"),
-		("Pika8", "pikapika8", "img/pika2.png", "cobacoba3@gmail.com", "asd123", "085723289999", "false");
+		("Pika7", "pikapika7", "img/oro.png", "cobacoba@gmail.com", "asd123", "085723289999", "false"),
+		("Pika8", "pikapika8", "img/sasuke.png", "cobacoba3@gmail.com", "asd123", "085723289999", "false");
 
 CREATE TABLE driver (
 	id_driver int NOT NULL,

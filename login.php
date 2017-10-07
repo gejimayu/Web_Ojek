@@ -3,38 +3,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>LOGIN!!!!</title>
+	<title>Login Page</title>
 	<link rel="stylesheet" type="text/css" href="style/login.css">
 </head>
 <body>
-	<div class="header">
-		<h1>LOGIN</h1>
-	</div>
-	<?php if(!empty($error)) { ?>	
-	<div id="error"><?php echo $error; ?></div>
-	<?php } ?>
-	<form method="post" action="login.php" onsubmit="return validateForms()">
-		<div class="form-element">
+	<div class="content">
+		<div class="header">
+			<h1 id="title">── LOGIN ──</h1>
+		</div>
+		<?php if(!empty($error)) { ?>	
+			<div id="error"><?php echo $error; ?></div>
+		<?php } ?>
+		<form method="post" action="login.php" onsubmit="return validateForms()">
 			<table>
 				<tr>
-					<th><label id="usernameLabel" for="username">Username</label></th>
-					<th><input placeholder="Insert Your Username" type="text" name="username" id="username"  /></th>
+					<td><label id="inputLabel" for="username">Username</label></td>
+					<td><input id="box" placeholder="Insert Your Username" type="text" name="username" id="username"  /></td>
 				</tr>
-			</table>
-		</div>
-		<div class="form-element">
-			<table>
 				<tr>
-					<th><label id="passwordLabel" for="password">Password</label></th>
-					<th><input placeholder="Insert Your Password"type="password" name="password" id="password" /></th>
+					<td><label id="inputLabel" for="password">Password</label></td>
+					<td><input id="box" placeholder="Insert Your Password" type="password" name="password" id="password" /></td>
 				</tr>
 			</table>
-		</div>
-		<div class="no_account">
-			<a href="register.php">Don't have an account?</a>
-		</div>
-		<button type="submit" class="buttonGO" name="login">GO!</button>
-	</form>
-		
+			<div class="bottom">
+				<a id="no_account" href="register.php">Don't have an account?</a>
+				<button type="submit" class="buttonGO" name="login">GO!</button>
+			</div>
+		</form>
+	</div>		
 </body>
 </html>

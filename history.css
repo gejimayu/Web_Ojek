@@ -1,37 +1,43 @@
+.ProfileForm {
+	margin-bottom: 10px;
+}
 
-#divTabelProfile{
+.divTabelProfile{
 	height: 160px;
 }
 
-#tabelProfile{
-	width: 100%;
+.tabelProfile{
+	width: 400px;
+	table-layout: fixed;
 }
-
-#profilePict {
-	border-style: solid;
-	width: 140px;
-	height: 140px;
-}
-
 
 .containerPict {
 	height: 140px;
 	width: 140px;
 }
 
-#pictProfile {
-	height: 100%; 
-	width: 100%; 
-	object-fit: contain
+.pictProfile {
+	height: 140px;
+	width: 140px;
+	object-fit: contain;
 }
 
+.profilePict {
+	border: 1px solid black;
+	width: 140px;
+	height: 140px;
+}
 
-#profileDll {
+.profileDll {
 	padding-left: 20px;
-	width: 100%;
+	width: 180px;
 }
 
-#hideButton {
+.profileButton {
+	width: 80px;
+}
+
+.hideButton {
 	margin-left: 100px; 
 	margin-bottom: 80px;
 	width: 80px; 
@@ -42,29 +48,29 @@
 
 }
 
-#currentDate {
+.currentDate {
 	color: #a6ada7;
 	font-family: "Arial";
 }
 
-#customerName {
+.customerName {
 	font-size: 20px;
 	font-family: "Arial";
 
 }
-#tujuan {
+.tujuan {
 	font-size: 12px;
 	font-family: "Arial";
 }
-#rating #colorRating {
+.rating .colorRating {
 	color: #f7b74a;
 }
 
-#comment {
+.comment {
 	font-size: 0.9em;
 }
 
-#comment #userComment {
+.comment .userComment {
 	padding-left: 10px;
 	font-size: 1em;
 }

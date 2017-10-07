@@ -73,7 +73,7 @@
 				
 				if (isset($preferred)) {
 					$results = $db -> select("SELECT * FROM driver join user
-											WHERE id_user = id_driver AND name = " . $preferred);
+											WHERE id_user <> $userid AND id_user = id_driver AND name = " . $preferred);
 					if ($results == false)
 						echo "<p>Nothing to display :(</p>";
 					else {
