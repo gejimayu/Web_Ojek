@@ -67,7 +67,7 @@
 						<input id="saveButton" type="submit" value="SAVE" name="submit">
 				</div>
 			</form>
-			<form action="showprofile.php?user_id=3" method="POST">
+			<form action="showprofile.php?user_id=<?php echo $userid ?>" method="POST">
 				<input id="backButton" type="submit" value="BACK">
 			</form>
 		</div>
