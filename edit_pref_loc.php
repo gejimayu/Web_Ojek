@@ -34,7 +34,7 @@
 		<h1 id="logo">
 			<span id="labelgreen">PR</span>-<span id="labelred">OJEK</span>
 		</h1>
-		<a id="logout" href="#">Logout</a>
+		<a id="logout" href="logout.php">Logout</a>
 		<p id="extralogo">wush... wush... ngeeeeenggg...</p>
 	</div>
 
