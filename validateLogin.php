@@ -17,7 +17,8 @@
 		}
 		else {	
 	    	$id = $rows[0]['id_user'];
-	    	header("Location:/wbdojek/order/pickdestination.php?user_id=$id");
+	    	$_SESSION['user_id'] = $id;
+	    	header("Location:/wbdojek/order/pickdestination.php");
 		}
 	}
 ?>

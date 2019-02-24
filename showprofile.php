@@ -7,8 +7,9 @@
 	<body>
 		<?php
 			include 'db.php';
+			session_start();
 			$db = new Database();
-			$userid = $_GET['user_id'];
+			$userid = $_SESSION['user_id'];
 			// PROFILE PIC
 			if(isset($_POST["submit"]) && $_POST["submit"] == "SAVE") {
 				if (isset($_FILES['inputAva']) && $_FILES['inputAva']['name'] != false) {
@@ -50,15 +51,15 @@
 		</div>
 		<table id="tableactivity">
 			<tr>
-				<td class="rest_activity"><a href="order/pickdestination.php?user_id=<?php echo $userid?>">ORDER</a></td>
-				<td class="rest_activity"><a href="userHistory.php?user_id=<?php echo $userid?>">HISTORY</a></td>
-				<td id="current_activity"><a href="showprofile.php?user_id=<?php echo $userid?>">MY PROFILE</a></td>
+				<td class="rest_activity"><a href="order/pickdestination.php">ORDER</a></td>
+				<td class="rest_activity"><a href="userHistory.php">HISTORY</a></td>
+				<td id="current_activity"><a href="showprofile.php">MY PROFILE</a></td>
 			</tr>
 		</table>
 		<div class="show_content">
 			<div class="heading_info">
 				<h2>MY PROFILE</h2>
-				<form action="editprofile.php?user_id=<?php echo $userid ?>" method="POST">
+				<form action="editprofile.php" method="POST">
 					<input type="image" id="pencil1" src="vstock/pencil.png">
 				</form>
 			</div>
@@ -85,7 +86,7 @@
 					echo
 					'<div class="heading_loc">
 						<h3>PREFERRED LOCATIONS:</h3>
-						<form action="edit_pref_loc.php?user_id='.$userid.'" method="POST">
+						<form action="edit_pref_loc.php" method="POST">
 							<input type="image" id="pencil2" src="vstock/pencil.png">
 						</form>
 					</div>';

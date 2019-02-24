@@ -9,6 +9,7 @@
 
 	<?php
 		include 'db.php';
+		session_start();
 		$db = new Database();
 
 		//jika terdapat post request dari hide button
@@ -17,7 +18,7 @@
 			$resultUpdate = $db -> query("UPDATE user_history SET hide=1 WHERE id_history=$history_id");
 		}
 
-		$userid = $_GET['user_id'];
+		$userid = $_SESSION['user_id'];
 		//fetching user data
 		$results = $db -> select("SELECT * FROM user WHERE id_user = $userid");
 		$name = $results[0]['name'];//nama driver
@@ -32,9 +33,9 @@
 		</div>
 		<table id="tableactivity">
 			<tr>
-				<td class="rest_activity"><a href="order/pickdestination.php?user_id='.$userid.'">ORDER</a></td>
-				<td id="current_activity"><a href="userHistory.php?user_id='.$userid.'">HISTORY</a></td>
-				<td class="rest_activity"><a href="showprofile.php?user_id='.$userid.'">MY PROFILE</a></td>
+				<td class="rest_activity"><a href="order/pickdestination.php">ORDER</a></td>
+				<td id="current_activity"><a href="userHistory.php">HISTORY</a></td>
+				<td class="rest_activity"><a href="showprofile.php">MY PROFILE</a></td>
 			</tr>
 		</table>
 
@@ -42,8 +43,8 @@
 			
 		<table id="tabelOrder">
 			<tr>
-				<td id="driverHistory"><a href="userHistory.php?user_id='.$userid.'">MY PREVIOUS ORDER</a></th>
-				<td id="previousOrder"><a href="driverHistory.php?user_id='.$userid.'">DRIVER HISTORY</a></th>
+				<td id="driverHistory"><a href="userHistory.php">MY PREVIOUS ORDER</a></th>
+				<td id="previousOrder"><a href="driverHistory.php">DRIVER HISTORY</a></th>
 			</tr>
 		</table>';
 
@@ -63,7 +64,7 @@
 
 			if (!$hide){
 				echo 
-				'<form class="ProfileForm" method="post" action="userHistory.php?user_id='.$userid.'">
+				'<form class="ProfileForm" method="post" action="userHistory.php">
 					<div class="divTabelProfile" >
 						<table class="tabelProfile">
 							<tr>

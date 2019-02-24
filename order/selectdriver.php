@@ -8,8 +8,9 @@
 <body>
 	<?php
 		include '../db.php';
+		session_start();
 		$db = new Database();
-		$userid = $_GET['user_id'];
+		$userid = $_SESSION['user_id'];
 
 		//fetching user data
 		$results = $db -> select("SELECT * FROM user WHERE id_user = $userid");
@@ -27,9 +28,9 @@
 
 	<table id="tableactivity">
 		<tr>
-			<td id="current_activity"><a href="pickdestination.php?user_id=<?php echo $userid?>">ORDER</a></td>
-			<td class="rest_activity"><a href="../userHistory.php?user_id=<?php echo $userid?>">HISTORY</a></td>
-			<td class="rest_activity"><a href="../showprofile.php?user_id=<?php echo $userid?>">MY PROFILE</a></td>
+			<td id="current_activity"><a href="pickdestination.php">ORDER</a></td>
+			<td class="rest_activity"><a href="../userHistory.php">HISTORY</a></td>
+			<td class="rest_activity"><a href="../showprofile.php">MY PROFILE</a></td>
 		</tr>
 	</table>
 
@@ -84,7 +85,7 @@
 										<td id='driver_identification'>
 											<span id='driver_name'>" . $result['name'] . "</span><br>
 											<span id='driver_rating'>☆ ". $result['avgrating'] ."</span> (". $result['num_votes'] ." votes) <br>
-											<form action='completeorder.php?user_id=$userid' method='POST'>
+											<form action='completeorder.php' method='POST'>
 												<button name='driverid' value='". $result['id_driver'] ."'>I CHOOSE YOU!</button>
 											</form>
 										</td>
@@ -122,7 +123,7 @@
 										<td id='driver_identification'>
 											<span id='driver_name'>" . $result['name'] . "</span><br>
 											<span id='driver_rating'>☆ ". $result['avgrating'] ."</span> (". $result['num_votes'] ." votes) <br>
-											<form id='asd' action='completeorder.php?user_id=$userid' method='POST'>
+											<form id='asd' action='completeorder.php' method='POST'>
 												<button name='driverid' value='". $result['id_driver'] ."'>I CHOOSE YOU!</button>
 											</form>
 										</td>

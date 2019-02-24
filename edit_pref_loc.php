@@ -9,9 +9,10 @@
 <body>
 	<?php
 		include 'db.php';
+		session_start();
 		$db = new Database();
 
-		$userid = $_GET['user_id'];
+		$userid = $_SESSION['user_id'];
 
 		//if there is a post request, insert to db
 		if (isset($_POST['loc'])) {
@@ -39,9 +40,9 @@
 
 	<table id="tableactivity">
 			<tr>
-				<td class="rest_activity"><a href="order/pickdestination.php?user_id=<?php echo $userid?>">ORDER</a></td>
-				<td class="rest_activity"><a href="userHistory.php?user_id=<?php echo $userid?>">HISTORY</a></td>
-				<td id="current_activity"><a href="showprofile.php?user_id=<?php echo $userid?>">MY PROFILE</a></td>
+				<td class="rest_activity"><a href="order/pickdestination.php">ORDER</a></td>
+				<td class="rest_activity"><a href="userHistory.php">HISTORY</a></td>
+				<td id="current_activity"><a href="showprofile.php">MY PROFILE</a></td>
 			</tr>
 		</table>
 
@@ -65,7 +66,7 @@
 							<td id='city'>$location</td>
 							<td id='editbutton'>
 								<img id='pencil' src='vstock/pencil.png'>
-								<form id='xmarkform' action='edit_pref_loc.php?user_id=$userid' method='POST' 
+								<form id='xmarkform' action='edit_pref_loc.php' method='POST' 
 										onsubmit='return onConfirm()'>
 									<input id='xmark' type='image' name='delete' value='". $location ."' src='vstock/forbidden-mark.png'/>
 								</form>
@@ -79,12 +80,12 @@
 
 	<p id="addnewloc">ADD NEW LOCATION:</p>
 
-	<form id="addnewloc" action="edit_pref_loc.php?user_id=<?php echo $userid ?>" method="POST">
+	<form id="addnewloc" action="edit_pref_loc.php" method="POST">
 		<input type="text" name="loc">
 		<button>ADD</button>
 	</form>
 
-	<form action="showprofile.php?user_id=<?php echo $userid ?>" method="POST">
+	<form action="showprofile.php" method="POST">
 	    <input id="back" type="submit" value="BACK" />
 	</form>
 </body>

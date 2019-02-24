@@ -9,8 +9,9 @@
 <body>
 	<?php
 		include '../db.php';
+		session_start();
 		$db = new Database();
-		$userid = $_GET['user_id'];
+		$userid = $_SESSION['user_id'];
 
 		//fetching user data
 		$results = $db -> select("SELECT * FROM user WHERE id_user = $userid");
@@ -28,9 +29,9 @@
 
 	<table id="tableactivity">
 		<tr>
-			<td id="current_activity"><a href="pickdestination.php?user_id=<?php echo $userid?>">ORDER</a></td>
-			<td class="rest_activity"><a href="../userHistory.php?user_id=<?php echo $userid?>">HISTORY</a></td>
-			<td class="rest_activity"><a href="../showprofile.php?user_id=<?php echo $userid?>">MY PROFILE</a></td>
+			<td id="current_activity"><a href="pickdestination.php">ORDER</a></td>
+			<td class="rest_activity"><a href="../userHistory.php">HISTORY</a></td>
+			<td class="rest_activity"><a href="../showprofile.php">MY PROFILE</a></td>
 		</tr>
 	</table>
 
@@ -75,7 +76,7 @@
 			}
 		?>
 
-		<form action="pickdestination.php?user_id=<?php echo $userid ?>" method="POST" onsubmit="return validateForm2()">
+		<form action="pickdestination.php" method="POST" onsubmit="return validateForm2()">
 		    <div class="rate">
 		        <input type="radio" id="star5" name="rate" value="5" /><label for="star5" title="text">5 stars</label>
 		        <input type="radio" id="star4" name="rate" value="4" /><label for="star4" title="text">4 stars</label>

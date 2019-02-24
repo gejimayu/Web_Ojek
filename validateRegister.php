@@ -34,11 +34,11 @@
 		$success_message = 'Selamat anda terdaftar di layanan ini<br>';
 		if ($driver=="true"){
 			//masuk ke profile
-			header("Location:showprofile.php?user_id=$id");	
+			header("Location:showprofile.php");	
 		}
 		else {
 			//masuk ke order
-			header("Location:order/pickdestination.php?user_id=$id");
+			header("Location:order/pickdestination.php");
 		}
 	}
 ?>
