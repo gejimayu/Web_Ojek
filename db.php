@@ -34,7 +34,7 @@
 
         public function escapeStr($value) {
             $connection = $this -> connect();
-            return "'" . $connection -> real_escape_string($value) . "'";
+            return "'" . htmlspecialchars($connection -> real_escape_string($value)) . "'";
         }
 
         public function error() {
