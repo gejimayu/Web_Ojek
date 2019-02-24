@@ -24,6 +24,9 @@
 		$query = "SELECT * FROM user where username='$username'";
 		$rows = $db -> select($query);
 		$id = $rows[0]['id_user'];
+		
+		session_start();
+		$_SESSION['user_id'] = $id;
 
 		if ($driver === "true") {
 			//inserting data to driver table
