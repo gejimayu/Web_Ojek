@@ -62,8 +62,6 @@
 
 	<div id="ordercontent">
 		<?php
-			session_start();
-			
 			$driverid = $_POST['driverid'];
 			//save data to session
 			$_SESSION['driverid'] = $driverid;

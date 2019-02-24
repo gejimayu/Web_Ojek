@@ -61,7 +61,6 @@
 		<h2 class="title_driver">PREFERRED DRIVERS:</h2>
 		<div class="chosen_driver">
 			<?php
-				session_start();
 				if (isset($_POST['picking_point']))
 					$pickingpoint = $db -> escapeStr($_POST['picking_point']);
 				if (isset($_POST['destination']))
