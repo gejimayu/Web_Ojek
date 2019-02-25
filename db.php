@@ -4,8 +4,9 @@
 
         public function connect() {    
             if(!isset(self::$connection)) {
-                $config = parse_ini_file('config.ini'); 
-                self::$connection = new mysqli('localhost:3306',$config['username'],$config['password'],$config['dbname']);
+                $config = parse_ini_file($_SERVER['DOCUMENT_ROOT'].'/credentials/config.ini'); 
+                self::$connection =
+                    new mysqli('localhost:3306',$config['username'],$config['password'],$config['dbname']);
             }
 
             if(self::$connection === false) {
