@@ -26,6 +26,8 @@
 		$id = $rows[0]['id_user'];
 		
 		session_start();
+		session_regenerate_id();
+	  $_SESSION['HTTP_USER_AGENT'] = md5($_SERVER['HTTP_USER_AGENT'] . 's3cr3t_k3y');
 		$_SESSION['user_id'] = $id;
 
 		if ($driver === "true") {
