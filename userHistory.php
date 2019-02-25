@@ -11,14 +11,17 @@
 		include 'db.php';
 		session_start();
 		$db = new Database();
-
+		if (!isset($_SESSION['user_id'])) {
+			header("Location:/wbdojek/login.php");
+		}
+		$userid = $_SESSION['user_id'];
+		
 		//jika terdapat post request dari hide button
 		if (isset($_POST['hide'])){
 			$history_id = $_POST['hide'];
 			$resultUpdate = $db -> query("UPDATE user_history SET hide=1 WHERE id_history=$history_id");
 		}
 
-		$userid = $_SESSION['user_id'];
 		//fetching user data
 		$results = $db -> select("SELECT * FROM user WHERE id_user = $userid");
 		$name = $results[0]['name'];//nama driver

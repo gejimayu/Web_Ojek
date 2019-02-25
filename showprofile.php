@@ -9,6 +9,9 @@
 			include 'db.php';
 			session_start();
 			$db = new Database();
+			if (!isset($_SESSION['user_id'])) {
+				header("Location:/wbdojek/login.php");
+			}
 			$userid = $_SESSION['user_id'];
 			// PROFILE PIC
 			if(isset($_POST["submit"]) && $_POST["submit"] == "SAVE") {
