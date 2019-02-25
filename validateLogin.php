@@ -19,6 +19,7 @@
 	    	$id = $rows[0]['id_user'];
 	    	$_SESSION['user_id'] = $id;
 	    	session_regenerate_id();
+	    	$_SESSION['HTTP_USER_AGENT'] = md5($_SERVER['HTTP_USER_AGENT'] . 's3cr3t_k3y');
 	    	header("Location:/wbdojek/order/pickdestination.php");
 		}
 	}

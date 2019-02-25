@@ -9,11 +9,8 @@
 
 	<?php
 		include 'db.php';
-		session_start();
+		include 'authenticate.php';
 		$db = new Database();
-		if (!isset($_SESSION['user_id'])) {
-			header("Location:/wbdojek/login.php");
-		}
 		$userid = $_SESSION['user_id'];
 
 		//jika terdapat post request dari hide button
