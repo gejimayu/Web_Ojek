@@ -18,6 +18,7 @@
 		else {	
 	    	$id = $rows[0]['id_user'];
 	    	$_SESSION['user_id'] = $id;
+	    	session_regenerate_id();
 	    	header("Location:/wbdojek/order/pickdestination.php");
 		}
 	}
