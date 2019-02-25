@@ -28,6 +28,8 @@
 		session_start();
 		session_regenerate_id();
 	  $_SESSION['HTTP_USER_AGENT'] = md5($_SERVER['HTTP_USER_AGENT'] . 's3cr3t_k3y');
+    // Ending a session in 30 minutes from the starting time.
+  	$_SESSION['expire'] = time() + (30 * 60);
 		$_SESSION['user_id'] = $id;
 
 		if ($driver === "true") {
