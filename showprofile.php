@@ -17,9 +17,16 @@
 					$target_file = $target_dir . basename($_FILES["inputAva"]["name"]);
 					$uploadOk = 1;
 					$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-				    move_uploaded_file($_FILES["inputAva"]["tmp_name"], $target_file);
-					$inputAva = $db -> escapeStr($target_file);
-					$rowAva = $db -> query("UPDATE user SET prof_pic=".$inputAva." WHERE id_user=$userid");
+
+					// Check uploaded image file type
+					$image = getimagesize($_FILES["inputAva"]["tmp_name"]);
+					if ($image) {
+						move_uploaded_file($_FILES["inputAva"]["tmp_name"], $target_file);
+						$inputAva = $db -> escapeStr($target_file);
+						$rowAva = $db -> query("UPDATE user SET prof_pic=".$inputAva." WHERE id_user=$userid");
+					} else {
+						echo "File upload error!";
+					}
 				}
 				// USER'S INFO
 				if (isset($_POST['inputName']) && $_POST['inputName'] != false) {
