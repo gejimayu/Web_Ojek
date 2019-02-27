@@ -37,8 +37,9 @@
 						<label for="file-upload" class="custom-file-upload">
     						<span id="browseOverlay"> Browse... </span>
 						</label>
-						<input name="inputAva" class="upload" id="browseButton" type="file"
-	    onchange="document.getElementById('ava').src = window.URL.createObjectURL(this.files[0])">
+						<input name="inputAva" class="upload" id="file-upload" type="file" accept="image/*"
+		onchange="document.getElementById('ava').src = window.URL.createObjectURL(this.files[0]);
+		document.getElementById('avaBox').value = this.files[0].name">
 				</div>	
 				<div class="edit_profile">
 						<table id="tableUser">
